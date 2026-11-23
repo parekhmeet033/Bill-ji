@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "816113960452",
+    "project_id": "billji-288a2",
+    "storage_bucket": "billji-288a2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816113960452:android:8feacd390c3d81c42ed751",
+        "android_client_info": {
+          "package_name": "com.billji.billing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkRzbDtOOb7QsmCAEp54pTVDId7nXVsl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

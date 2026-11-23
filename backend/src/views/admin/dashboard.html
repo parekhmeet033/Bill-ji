@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · BillJi Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root { --brand:#FE701A; --brand-dark:#E55806; --ink:#1f2a52; }
+    * { font-family:'Nunito',system-ui,sans-serif; }
+    body { margin:0; background:#f6f7fb; color:#4b5675; }
+    .layout { display:flex; min-height:100vh; }
+    .sidebar { width:260px; background:#fff; border-right:1px solid #edf0f7; position:fixed; top:0; bottom:0; left:0; padding:22px 16px; z-index:1030; transition:transform .25s ease; }
+    .brand { display:flex; align-items:center; justify-content:center; gap:12px; padding:4px 8px 24px; }
+    .brand-img { width:100%; max-width:150px; height:auto; display:block; }
+    .brand-logo { width:42px; height:42px; flex:none; border-radius:10px; background:linear-gradient(135deg,#FE701A,#FF8A3D); color:#fff; display:grid; place-items:center; font-size:22px; }
+    .brand-text b { color:var(--ink); font-size:1.15rem; font-weight:800; } .brand-text b span { color:var(--brand); }
+    .brand-text small { display:block; color:#9aa3b8; font-size:.58rem; letter-spacing:.22em; font-weight:700; margin-top:2px; }
+    .nav-link { display:flex; align-items:center; gap:14px; padding:13px 14px; border-radius:10px; color:#5c6885; font-weight:700; text-decoration:none; margin-bottom:4px; }
+    .nav-link i { font-size:1.15rem; }
+    .nav-link:hover { background:#f2f5fd; color:var(--brand); }
+    .nav-link.active { background:var(--brand); color:#fff; box-shadow:0 6px 16px rgba(67,97,238,.3); }
+    .main { flex:1; margin-left:260px; min-width:0; }
+    .topbar { height:64px; background:#fff; border-bottom:1px solid #edf0f7; display:flex; align-items:center; justify-content:space-between; padding:0 24px; position:sticky; top:0; z-index:1020; }
+    .topbar h5 { margin:0; font-weight:800; color:var(--ink); }
+    .content { padding:26px; }
+    .stat { background:#fff; border-radius:14px; padding:20px; box-shadow:0 4px 20px rgba(31,42,82,.05); display:flex; align-items:center; gap:16px; height:100%; }
+    .stat .ic { width:54px; height:54px; border-radius:13px; display:grid; place-items:center; font-size:24px; flex:none; color:#fff; }
+    .stat .v { font-size:1.7rem; font-weight:800; color:var(--ink); line-height:1; }
+    .stat .l { color:#8a92a8; font-weight:700; font-size:.85rem; margin-top:4px; }
+    .panel { background:#fff; border-radius:14px; box-shadow:0 4px 20px rgba(31,42,82,.05); padding:22px 24px; }
+    .panel h6 { font-weight:800; color:var(--ink); }
+    table.ux { width:100%; border-collapse:collapse; }
+    table.ux thead th { color:#8a94a6; font-size:.78rem; text-transform:uppercase; letter-spacing:.03em; padding:12px; border-bottom:2px solid #eef1f8; font-weight:800; text-align:left; }
+    table.ux td { padding:14px 12px; border-bottom:1px solid #f0f2f8; color:#5a647e; }
+    .badge-on { background:#eaf7ef; color:#1a9d53; font-weight:700; padding:5px 10px; border-radius:20px; font-size:.72rem; }
+    .badge-off { background:#fdeeee; color:#eb4d5c; font-weight:700; padding:5px 10px; border-radius:20px; font-size:.72rem; }
+    .menu-toggle { display:none; }
+    @media (max-width:991px){ .sidebar{ transform:translateX(-100%);} .sidebar.open{ transform:translateX(0);} .main{ margin-left:0;} .menu-toggle{ display:inline-flex;} }
+    .backdrop { display:none; position:fixed; inset:0; background:rgba(0,0,0,.3); z-index:1025; } .backdrop.show{ display:block; }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img src="/assets/billji_wordmark.jpg" alt="BillJi" class="brand-img">
+      </div>
+      <a class="nav-link active" href="/admin/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      <a class="nav-link" href="/admin/users"><i class="bi bi-people"></i> User</a>
+      <a class="nav-link" href="/admin/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-light menu-toggle" id="menuToggle"><i class="bi bi-list fs-4"></i></button>
+          <h5>Dashboard</h5>
+        </div>
+        <span class="fw-semibold" id="meName">Admin</span>
+      </header>
+
+      <main class="content">
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-xl-3"><div class="stat"><div class="ic" style="background:linear-gradient(135deg,#FE701A,#FF8A3D)"><i class="bi bi-shop"></i></div><div><div class="v" id="sShops">—</div><div class="l">Total Shops</div></div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat"><div class="ic" style="background:linear-gradient(135deg,#1aa053,#49c27a)"><i class="bi bi-check2-circle"></i></div><div><div class="v" id="sActive">—</div><div class="l">Active Shops</div></div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat"><div class="ic" style="background:linear-gradient(135deg,#eb6d2f,#f59e4b)"><i class="bi bi-bag-check"></i></div><div><div class="v" id="sOrders">—</div><div class="l">Total Orders</div></div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat"><div class="ic" style="background:linear-gradient(135deg,#8b45c9,#b06ee6)"><i class="bi bi-cash-stack"></i></div><div><div class="v" id="sRevenue">—</div><div class="l">Total Revenue</div></div></div></div>
+        </div>
+
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-xl-3"><div class="stat"><div class="ic" style="background:linear-gradient(135deg,#0ea5a3,#3fd0ce)"><i class="bi bi-calendar-day"></i></div><div><div class="v" id="sToday">—</div><div class="l">Orders Today</div></div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat"><div class="ic" style="background:linear-gradient(135deg,#e0486b,#f2779a)"><i class="bi bi-slash-circle"></i></div><div><div class="v" id="sInactive">—</div><div class="l">Inactive Shops</div></div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat"><div class="ic" style="background:linear-gradient(135deg,#f0a92b,#f7c45e)"><i class="bi bi-hourglass-split"></i></div><div><div class="v" id="sExpiring">—</div><div class="l">Plans Expiring (30d)</div></div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat"><div class="ic" style="background:linear-gradient(135deg,#8a94a6,#aab2c5)"><i class="bi bi-x-octagon"></i></div><div><div class="v" id="sExpired">—</div><div class="l">Expired Plans</div></div></div></div>
+        </div>
+
+        <div class="panel">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="mb-0">Recent Shops</h6>
+            <a href="/admin/users" class="btn btn-sm btn-outline-primary">View all</a>
+          </div>
+          <div class="table-responsive">
+            <table class="ux">
+              <thead><tr><th>Shop Name</th><th>Email</th><th>Plan End</th><th>Status</th></tr></thead>
+              <tbody id="recentBody"><tr><td colspan="4" class="text-center text-muted py-4">Loading…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fmt = d => { if(!d) return '—'; const p=String(d).slice(0,10).split('-'); return p.length===3?`${p[2]}-${p[1]}-${p[0]}`:d; };
+    const money = n => '₹' + Number(n||0).toLocaleString('en-IN');
+
+    fetch('/admin/api/me',{credentials:'same-origin'}).then(r=>r.json()).then(r=>{ if(r&&r.data) document.getElementById('meName').textContent=r.data.email||'Admin'; });
+
+    fetch('/admin/api/dashboard',{credentials:'same-origin'}).then(r=>r.json()).then(r=>{
+      if(!r||!r.data) return;
+      const d=r.data;
+      document.getElementById('sShops').textContent=d.total_shops;
+      document.getElementById('sActive').textContent=d.active_shops;
+      document.getElementById('sOrders').textContent=d.total_orders;
+      document.getElementById('sRevenue').textContent=money(d.total_revenue);
+      document.getElementById('sToday').textContent=d.today_orders;
+      document.getElementById('sInactive').textContent=d.inactive_shops;
+      document.getElementById('sExpiring').textContent=d.expiring_soon;
+      document.getElementById('sExpired').textContent=d.expired;
+      const body=document.getElementById('recentBody');
+      body.innerHTML=(d.recent_shops&&d.recent_shops.length)
+        ? d.recent_shops.map(s=>`<tr><td class="fw-bold" style="color:var(--ink)">${esc(s.name)}</td><td>${esc(s.email)}</td><td>${fmt(s.plan_end_date)}</td><td>${Number(s.status)?'<span class="badge-on">Active</span>':'<span class="badge-off">Inactive</span>'}</td></tr>`).join('')
+        : '<tr><td colspan="4" class="text-center text-muted py-4">No shops yet.</td></tr>';
+    });
+
+    const sidebar=document.getElementById('sidebar'), backdrop=document.getElementById('backdrop');
+    document.getElementById('menuToggle').addEventListener('click',()=>{ sidebar.classList.add('open'); backdrop.classList.add('show'); });
+    backdrop.addEventListener('click',()=>{ sidebar.classList.remove('open'); backdrop.classList.remove('show'); });
+  </script>
+</body>
+</html>

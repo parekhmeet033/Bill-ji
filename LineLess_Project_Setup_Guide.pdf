@@ -1,0 +1,1550 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 4 0 R /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 6582 >>
+stream
+q
+0.080 0.180 0.360 rg
+0.00 740.00 595.28 101.89 re
+f
+Q
+q
+0.290 0.440 0.950 rg
+0.00 735.00 595.28 5.00 re
+f
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 24 Tf
+1 0 0 1 45.00 800.00 Tm
+(LINELESS POS SYSTEM) Tj
+ET
+Q
+q
+BT
+0.850 0.900 1.000 rg
+/F1 12 Tf
+1 0 0 1 45.00 778.00 Tm
+(Full-Stack Architecture & Environment Setup Guide) Tj
+ET
+Q
+q
+BT
+0.700 0.780 0.900 rg
+/F1 9 Tf
+1 0 0 1 45.00 755.00 Tm
+(GoalScripture Technologies  |  November 2026 Release) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 14 Tf
+1 0 0 1 45.00 705.00 Tm
+(1. Executive Overview) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 700.00 m
+550.00 700.00 l
+S
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F1 9.5 Tf
+1 0 0 1 45.00 683.00 Tm
+(LineLess is an enterprise POS & restaurant billing solution designed to replace legacy Laravel systems) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F1 9.5 Tf
+1 0 0 1 45.00 669.00 Tm
+(with high-performance Node.js microservices, real-time WebSockets, modern React administration,) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F1 9.5 Tf
+1 0 0 1 45.00 655.00 Tm
+(and a multi-platform Flutter client for tablet, mobile, and desktop counters.) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 14 Tf
+1 0 0 1 45.00 625.00 Tm
+(2. Repository & System Components) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 620.00 m
+550.00 620.00 l
+S
+Q
+q
+0.800 0.850 0.920 RG
+1 w
+0.960 0.970 0.990 rg
+45.00 565.00 505.00 50.00 re
+B
+Q
+q
+0.200 0.450 0.850 rg
+45.00 565.00 4.00 50.00 re
+f
+Q
+q
+BT
+0.100 0.200 0.400 rg
+/F2 11 Tf
+1 0 0 1 58.00 598.00 Tm
+(A. Backend API & Real-time Server \(/backend\)) Tj
+ET
+Q
+q
+BT
+0.250 0.250 0.250 rg
+/F1 8.5 Tf
+1 0 0 1 58.00 584.00 Tm
+(Technology: Node.js \(v20+\), Express.js, MySQL \(mysql2 pool\), Socket.IO, JWT, Helmet) Tj
+ET
+Q
+q
+BT
+0.400 0.400 0.400 rg
+/F1 8.5 Tf
+1 0 0 1 58.00 572.00 Tm
+(Purpose: Handles POS APIs, tokens, order items, GST calculation, live dining tables, and real-time alerts.) Tj
+ET
+Q
+q
+0.800 0.900 0.850 RG
+1 w
+0.960 0.980 0.970 rg
+45.00 505.00 505.00 50.00 re
+B
+Q
+q
+0.100 0.650 0.500 rg
+45.00 505.00 4.00 50.00 re
+f
+Q
+q
+BT
+0.050 0.350 0.250 rg
+/F2 11 Tf
+1 0 0 1 58.00 538.00 Tm
+(B. Web Admin Dashboard \(/LineLess Web\)) Tj
+ET
+Q
+q
+BT
+0.250 0.250 0.250 rg
+/F1 8.5 Tf
+1 0 0 1 58.00 524.00 Tm
+(Technology: React 19, Vite, Tailwind CSS 3.4, Framer Motion, Lucide Icons) Tj
+ET
+Q
+q
+BT
+0.400 0.400 0.400 rg
+/F1 8.5 Tf
+1 0 0 1 58.00 512.00 Tm
+(Purpose: Cloud portal for restaurant owners to manage menus, GST settings, reports, staff, and live billing.) Tj
+ET
+Q
+q
+0.920 0.850 0.800 RG
+1 w
+0.990 0.970 0.960 rg
+45.00 445.00 505.00 50.00 re
+B
+Q
+q
+0.850 0.400 0.150 rg
+45.00 445.00 4.00 50.00 re
+f
+Q
+q
+BT
+0.450 0.200 0.050 rg
+/F2 11 Tf
+1 0 0 1 58.00 478.00 Tm
+(C. POS Terminal Client \(Repository Root\)) Tj
+ET
+Q
+q
+BT
+0.250 0.250 0.250 rg
+/F1 8.5 Tf
+1 0 0 1 58.00 464.00 Tm
+(Technology: Flutter / Dart, Material Design, Local Offline Caching, Thermal Printing Driver) Tj
+ET
+Q
+q
+BT
+0.400 0.400 0.400 rg
+/F1 8.5 Tf
+1 0 0 1 58.00 452.00 Tm
+(Purpose: High-speed cashier billing terminal supporting token generation, table management, and Bluetooth printing.) Tj
+ET
+Q
+q
+0.860 0.860 0.900 RG
+1 w
+0.970 0.970 0.980 rg
+45.00 385.00 505.00 50.00 re
+B
+Q
+q
+0.400 0.350 0.650 rg
+45.00 385.00 4.00 50.00 re
+f
+Q
+q
+BT
+0.250 0.150 0.400 rg
+/F2 11 Tf
+1 0 0 1 58.00 418.00 Tm
+(D. Production Hosting & Remote Server) Tj
+ET
+Q
+q
+BT
+0.250 0.250 0.250 rg
+/F1 8.5 Tf
+1 0 0 1 58.00 404.00 Tm
+(Public Domain: https://lineless.goalscripture.in  |  Server IP: 66.116.241.221 \(Port 3009\)) Tj
+ET
+Q
+q
+BT
+0.400 0.400 0.400 rg
+/F1 8.5 Tf
+1 0 0 1 58.00 392.00 Tm
+(Stack: Ubuntu Linux, Nginx Reverse Proxy, PM2 Process Manager, MySQL Database Server) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 14 Tf
+1 0 0 1 45.00 350.00 Tm
+(3. Required Environment Runtimes) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 345.00 m
+550.00 345.00 l
+S
+Q
+q
+0.150 0.230 0.350 rg
+45.00 325.00 505.00 18.00 re
+f
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 8.5 Tf
+1 0 0 1 55.00 330.00 Tm
+(Runtime / Tool) Tj
+ET
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 8.5 Tf
+1 0 0 1 180.00 330.00 Tm
+(Required Version) Tj
+ET
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 8.5 Tf
+1 0 0 1 310.00 330.00 Tm
+(Detected on System) Tj
+ET
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 8.5 Tf
+1 0 0 1 440.00 330.00 Tm
+(Target Component) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+0.970 0.970 0.980 rg
+45.00 307.00 505.00 18.00 re
+B
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F2 8 Tf
+1 0 0 1 55.00 312.00 Tm
+(Node.js) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 180.00 312.00 Tm
+(v18.x - v22.x LTS) Tj
+ET
+Q
+q
+BT
+0.100 0.500 0.200 rg
+/F2 8 Tf
+1 0 0 1 310.00 312.00 Tm
+(v22.12.0 \(Ready\)) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 440.00 312.00 Tm
+(Backend & Web Frontend) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+45.00 289.00 505.00 18.00 re
+B
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F2 8 Tf
+1 0 0 1 55.00 294.00 Tm
+(npm / npx) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 180.00 294.00 Tm
+(v9.x - v10.x) Tj
+ET
+Q
+q
+BT
+0.100 0.500 0.200 rg
+/F2 8 Tf
+1 0 0 1 310.00 294.00 Tm
+(v9.8.1 \(Ready\)) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 440.00 294.00 Tm
+(Package Management) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+0.970 0.970 0.980 rg
+45.00 271.00 505.00 18.00 re
+B
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F2 8 Tf
+1 0 0 1 55.00 276.00 Tm
+(MySQL Server) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 180.00 276.00 Tm
+(8.0+ / MariaDB 10.5+) Tj
+ET
+Q
+q
+BT
+0.100 0.500 0.200 rg
+/F2 8 Tf
+1 0 0 1 310.00 276.00 Tm
+(Local \(3306\) or Remote) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 440.00 276.00 Tm
+(Relational Database) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+45.00 253.00 505.00 18.00 re
+B
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F2 8 Tf
+1 0 0 1 55.00 258.00 Tm
+(Flutter SDK) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 180.00 258.00 Tm
+(3.19+ / Dart 3.3+) Tj
+ET
+Q
+q
+BT
+0.100 0.500 0.200 rg
+/F2 8 Tf
+1 0 0 1 310.00 258.00 Tm
+(Install if building App) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 440.00 258.00 Tm
+(Mobile & Desktop POS Client) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+0.970 0.970 0.980 rg
+45.00 235.00 505.00 18.00 re
+B
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F2 8 Tf
+1 0 0 1 55.00 240.00 Tm
+(PM2 & Nginx) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 180.00 240.00 Tm
+(Production Daemon) Tj
+ET
+Q
+q
+BT
+0.100 0.500 0.200 rg
+/F2 8 Tf
+1 0 0 1 310.00 240.00 Tm
+(Installed on Host) Tj
+ET
+Q
+q
+BT
+0.300 0.300 0.300 rg
+/F1 8 Tf
+1 0 0 1 440.00 240.00 Tm
+(Production Deployment) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+0.75 w
+40.00 45.00 m
+555.00 45.00 l
+S
+Q
+q
+BT
+0.500 0.550 0.600 rg
+/F1 8 Tf
+1 0 0 1 40.00 32.00 Tm
+(LineLess POS  Project Setup & Architecture Manual) Tj
+ET
+Q
+q
+BT
+0.500 0.550 0.600 rg
+/F1 8 Tf
+1 0 0 1 505.00 32.00 Tm
+(Page 1 of 3) Tj
+ET
+Q
+
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 6 0 R /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 5821 >>
+stream
+q
+0.080 0.180 0.360 rg
+0.00 785.00 595.28 56.89 re
+f
+Q
+q
+0.290 0.440 0.950 rg
+0.00 781.00 595.28 4.00 re
+f
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 16 Tf
+1 0 0 1 45.00 815.00 Tm
+(COMPONENT SETUP: NODE.JS BACKEND) Tj
+ET
+Q
+q
+BT
+0.850 0.900 1.000 rg
+/F1 9 Tf
+1 0 0 1 45.00 797.00 Tm
+(Configuration, Database Schema Initialization, and Execution Commands) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 13 Tf
+1 0 0 1 45.00 750.00 Tm
+(1. Environment Configuration \(.env\)) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 745.00 m
+550.00 745.00 l
+S
+Q
+q
+BT
+0.250 0.250 0.250 rg
+/F1 9 Tf
+1 0 0 1 45.00 732.00 Tm
+(The backend requires a configured .env file located at backend/.env. Use the sample below:) Tj
+ET
+Q
+q
+0.200 0.250 0.300 RG
+1 w
+0.120 0.140 0.180 rg
+45.00 637.00 505.00 88.00 re
+B
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 711.00 Tm
+(PORT=3009) Tj
+ET
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 702.00 Tm
+(NODE_ENV=development) Tj
+ET
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 693.00 Tm
+(DB_HOST=localhost            # Set 127.0.0.1 or remote MySQL host) Tj
+ET
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 684.00 Tm
+(DB_PORT=3306) Tj
+ET
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 675.00 Tm
+(DB_USER=root) Tj
+ET
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 666.00 Tm
+(DB_PASSWORD=your_mysql_password) Tj
+ET
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 657.00 Tm
+(DB_NAME=lineless_db) Tj
+ET
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 648.00 Tm
+(JWT_SECRET=lineless_super_secret_jwt_key_2026) Tj
+ET
+Q
+q
+BT
+0.750 0.900 0.750 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 639.00 Tm
+(APP_URL=http://localhost:3009) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 13 Tf
+1 0 0 1 45.00 612.00 Tm
+(2. Automated Safe Database Schema Initialization) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 607.00 m
+550.00 607.00 l
+S
+Q
+q
+BT
+0.250 0.250 0.250 rg
+/F1 9 Tf
+1 0 0 1 45.00 596.00 Tm
+(When server starts, backend/src/config/database.js automatically runs non-destructive checks:) Tj
+ET
+Q
+q
+0.200 0.500 0.900 rg
+50.00 572.00 6.00 6.00 re
+f
+Q
+q
+BT
+0.150 0.200 0.300 rg
+/F2 8.5 Tf
+1 0 0 1 65.00 574.00 Tm
+(CREATE DATABASE IF NOT EXISTS:) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 8.5 Tf
+1 0 0 1 240.00 574.00 Tm
+(Auto-provisions "lineless_db" with utf8mb4 character collation.) Tj
+ET
+Q
+q
+0.200 0.500 0.900 rg
+50.00 550.00 6.00 6.00 re
+f
+Q
+q
+BT
+0.150 0.200 0.300 rg
+/F2 8.5 Tf
+1 0 0 1 65.00 552.00 Tm
+(Auto-Migrations \(ensureColumnExists\):) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 8.5 Tf
+1 0 0 1 240.00 552.00 Tm
+(Safely appends missing GST columns \(gst_applicable, gst_rate, note\).) Tj
+ET
+Q
+q
+0.200 0.500 0.900 rg
+50.00 528.00 6.00 6.00 re
+f
+Q
+q
+BT
+0.150 0.200 0.300 rg
+/F2 8.5 Tf
+1 0 0 1 65.00 530.00 Tm
+(Core Tables Provisioned:) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 8.5 Tf
+1 0 0 1 240.00 530.00 Tm
+(users, shop_settings, categories, products, orders, order_items, pending_tables.) Tj
+ET
+Q
+q
+0.200 0.500 0.900 rg
+50.00 506.00 6.00 6.00 re
+f
+Q
+q
+BT
+0.150 0.200 0.300 rg
+/F2 8.5 Tf
+1 0 0 1 65.00 508.00 Tm
+(Zero Data Loss Guarantee:) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 8.5 Tf
+1 0 0 1 240.00 508.00 Tm
+(Uses IF NOT EXISTS and non-destructive ALTER statements compatible with legacy data.) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 13 Tf
+1 0 0 1 45.00 478.00 Tm
+(3. Backend Installation & Execution Commands) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 473.00 m
+550.00 473.00 l
+S
+Q
+q
+0.200 0.250 0.300 RG
+1 w
+0.120 0.140 0.180 rg
+45.00 383.00 505.00 88.00 re
+B
+Q
+q
+BT
+0.500 0.650 0.800 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 457.00 Tm
+(# 1. Navigate to the backend directory) Tj
+ET
+Q
+q
+BT
+0.950 0.950 0.950 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 448.50 Tm
+(cd backend) Tj
+ET
+Q
+q
+BT
+0.950 0.950 0.950 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 440.00 Tm
+() Tj
+ET
+Q
+q
+BT
+0.500 0.650 0.800 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 431.50 Tm
+(# 2. Install all dependencies \(express, mysql2, socket.io, etc.\)) Tj
+ET
+Q
+q
+BT
+0.950 0.950 0.950 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 423.00 Tm
+(npm install) Tj
+ET
+Q
+q
+BT
+0.950 0.950 0.950 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 414.50 Tm
+() Tj
+ET
+Q
+q
+BT
+0.500 0.650 0.800 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 406.00 Tm
+(# 3. Start development server with live reload \(nodemon\)) Tj
+ET
+Q
+q
+BT
+0.950 0.950 0.950 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 397.50 Tm
+(npm run dev) Tj
+ET
+Q
+q
+BT
+0.950 0.950 0.950 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 389.00 Tm
+() Tj
+ET
+Q
+q
+BT
+0.500 0.650 0.800 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 380.50 Tm
+(# 4. Run automated test suite \(Jest\)) Tj
+ET
+Q
+q
+BT
+0.950 0.950 0.950 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 372.00 Tm
+(npm test) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 13 Tf
+1 0 0 1 45.00 358.00 Tm
+(4. Production Deployment \(PM2 + Nginx\)) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 353.00 m
+550.00 353.00 l
+S
+Q
+q
+0.850 0.880 0.940 RG
+1 w
+0.960 0.970 0.990 rg
+45.00 273.00 505.00 78.00 re
+B
+Q
+q
+BT
+0.200 0.300 0.450 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 337.00 Tm
+(# Start backend via PM2 using existing ecosystem.config.js:) Tj
+ET
+Q
+q
+BT
+0.200 0.300 0.450 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 327.00 Tm
+(npm install -g pm2) Tj
+ET
+Q
+q
+BT
+0.200 0.300 0.450 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 317.00 Tm
+(pm2 start ecosystem.config.js --env production) Tj
+ET
+Q
+q
+BT
+0.200 0.300 0.450 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 307.00 Tm
+(pm2 save && pm2 startup) Tj
+ET
+Q
+q
+BT
+0.200 0.300 0.450 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 297.00 Tm
+() Tj
+ET
+Q
+q
+BT
+0.200 0.300 0.450 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 287.00 Tm
+(# Nginx reverse proxies incoming traffic to port 3009 with WebSocket upgrade headers:) Tj
+ET
+Q
+q
+BT
+0.200 0.300 0.450 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 277.00 Tm
+(proxy_pass http://127.0.0.1:3009;  proxy_set_header Upgrade $http_upgrade;) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+0.75 w
+40.00 45.00 m
+555.00 45.00 l
+S
+Q
+q
+BT
+0.500 0.550 0.600 rg
+/F1 8 Tf
+1 0 0 1 40.00 32.00 Tm
+(LineLess POS  Project Setup & Architecture Manual) Tj
+ET
+Q
+q
+BT
+0.500 0.550 0.600 rg
+/F1 8 Tf
+1 0 0 1 505.00 32.00 Tm
+(Page 2 of 3) Tj
+ET
+Q
+
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 8 0 R /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R >> >> >>
+endobj
+8 0 obj
+<< /Length 6813 >>
+stream
+q
+0.080 0.180 0.360 rg
+0.00 785.00 595.28 56.89 re
+f
+Q
+q
+0.290 0.440 0.950 rg
+0.00 781.00 595.28 4.00 re
+f
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 16 Tf
+1 0 0 1 45.00 815.00 Tm
+(WEB, FLUTTER & PRODUCTION REFERENCE) Tj
+ET
+Q
+q
+BT
+0.850 0.900 1.000 rg
+/F1 9 Tf
+1 0 0 1 45.00 797.00 Tm
+(LineLess Web Setup, Flutter App, API Endpoints, and Production Credentials) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 13 Tf
+1 0 0 1 45.00 750.00 Tm
+(1. LineLess Web Dashboard Setup \(/LineLess Web\)) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 745.00 m
+550.00 745.00 l
+S
+Q
+q
+0.200 0.250 0.300 RG
+1 w
+0.120 0.140 0.180 rg
+45.00 690.00 505.00 52.00 re
+B
+Q
+q
+BT
+0.850 0.900 1.000 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 730.00 Tm
+(cd "LineLess Web") Tj
+ET
+Q
+q
+BT
+0.850 0.900 1.000 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 720.00 Tm
+(npm install                      # Installs React 19, Tailwind, Lucide, Framer Motion) Tj
+ET
+Q
+q
+BT
+0.850 0.900 1.000 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 710.00 Tm
+(npm run dev                      # Starts Vite dev server at http://localhost:5173) Tj
+ET
+Q
+q
+BT
+0.850 0.900 1.000 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 700.00 Tm
+(npm run build                    # Creates optimized production build in /dist) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 13 Tf
+1 0 0 1 45.00 665.00 Tm
+(2. Flutter POS Client Terminal \(Root\)) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 660.00 m
+550.00 660.00 l
+S
+Q
+q
+0.200 0.250 0.300 RG
+1 w
+0.120 0.140 0.180 rg
+45.00 605.00 505.00 52.00 re
+B
+Q
+q
+BT
+0.950 0.850 0.700 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 645.00 Tm
+(flutter pub get                  # Resolves dependencies from pubspec.yaml) Tj
+ET
+Q
+q
+BT
+0.950 0.850 0.700 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 635.00 Tm
+(flutter run                      # Runs app on connected device or emulator) Tj
+ET
+Q
+q
+BT
+0.950 0.850 0.700 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 625.00 Tm
+(flutter build apk --release      # Builds release APK with credentials in creds/billji.jks) Tj
+ET
+Q
+q
+BT
+0.950 0.850 0.700 rg
+/F3 7.5 Tf
+1 0 0 1 55.00 615.00 Tm
+(flutter build windows --release  # Builds high-speed desktop counter executable) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 13 Tf
+1 0 0 1 45.00 577.00 Tm
+(3. Key API Endpoints & Socket Events) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 572.00 m
+550.00 572.00 l
+S
+Q
+q
+0.150 0.230 0.350 rg
+45.00 557.00 505.00 16.00 re
+f
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 8 Tf
+1 0 0 1 55.00 561.00 Tm
+(Method / Scope) Tj
+ET
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 8 Tf
+1 0 0 1 155.00 561.00 Tm
+(Endpoint / Event) Tj
+ET
+Q
+q
+BT
+1.000 1.000 1.000 rg
+/F2 8 Tf
+1 0 0 1 320.00 561.00 Tm
+(Payload & Purpose) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+0.970 0.970 0.980 rg
+45.00 542.00 505.00 15.00 re
+B
+Q
+q
+BT
+0.100 0.350 0.600 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 546.00 Tm
+(POST) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F3 7.5 Tf
+1 0 0 1 155.00 546.00 Tm
+(/api/auth/login) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 7.5 Tf
+1 0 0 1 320.00 546.00 Tm
+(Admin & Cashier email/password JWT login) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+45.00 527.00 505.00 15.00 re
+B
+Q
+q
+BT
+0.100 0.350 0.600 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 531.00 Tm
+(POST) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F3 7.5 Tf
+1 0 0 1 155.00 531.00 Tm
+(/api/auth/pin-login) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 7.5 Tf
+1 0 0 1 320.00 531.00 Tm
+(Fast 4-digit quick pin cashier access) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+0.970 0.970 0.980 rg
+45.00 512.00 505.00 15.00 re
+B
+Q
+q
+BT
+0.100 0.350 0.600 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 516.00 Tm
+(GET / POST) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F3 7.5 Tf
+1 0 0 1 155.00 516.00 Tm
+(/api/products) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 7.5 Tf
+1 0 0 1 320.00 516.00 Tm
+(Item catalogue, GST rates, category mappings) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+45.00 497.00 505.00 15.00 re
+B
+Q
+q
+BT
+0.100 0.350 0.600 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 501.00 Tm
+(POST) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F3 7.5 Tf
+1 0 0 1 155.00 501.00 Tm
+(/api/orders) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 7.5 Tf
+1 0 0 1 320.00 501.00 Tm
+(Place orders, print tokens, dine-in & takeaway totals) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+0.970 0.970 0.980 rg
+45.00 482.00 505.00 15.00 re
+B
+Q
+q
+BT
+0.100 0.350 0.600 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 486.00 Tm
+(GET / POST) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F3 7.5 Tf
+1 0 0 1 155.00 486.00 Tm
+(/api/orders/pending-table) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 7.5 Tf
+1 0 0 1 320.00 486.00 Tm
+(Manage running tables, KOT items & running bills) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+1.000 1.000 1.000 rg
+45.00 467.00 505.00 15.00 re
+B
+Q
+q
+BT
+0.100 0.350 0.600 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 471.00 Tm
+(SOCKET \(IN\)) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F3 7.5 Tf
+1 0 0 1 155.00 471.00 Tm
+(join-shop) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 7.5 Tf
+1 0 0 1 320.00 471.00 Tm
+(Clients join shop-specific isolated real-time rooms) Tj
+ET
+Q
+q
+0.900 0.900 0.920 RG
+0.5 w
+0.970 0.970 0.980 rg
+45.00 452.00 505.00 15.00 re
+B
+Q
+q
+BT
+0.100 0.350 0.600 rg
+/F2 7.5 Tf
+1 0 0 1 55.00 456.00 Tm
+(SOCKET \(OUT\)) Tj
+ET
+Q
+q
+BT
+0.200 0.200 0.200 rg
+/F3 7.5 Tf
+1 0 0 1 155.00 456.00 Tm
+(order-status-update) Tj
+ET
+Q
+q
+BT
+0.350 0.350 0.350 rg
+/F1 7.5 Tf
+1 0 0 1 320.00 456.00 Tm
+(Broadcasts instant table & kitchen ticket updates) Tj
+ET
+Q
+q
+BT
+0.080 0.180 0.360 rg
+/F2 13 Tf
+1 0 0 1 45.00 422.00 Tm
+(4. Production Server Reference & Credentials) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+1 w
+45.00 417.00 m
+550.00 417.00 l
+S
+Q
+q
+0.850 0.880 0.940 RG
+1 w
+0.980 0.980 0.990 rg
+45.00 332.00 505.00 84.00 re
+B
+Q
+q
+BT
+0.200 0.250 0.350 rg
+/F2 8 Tf
+1 0 0 1 55.00 400.00 Tm
+(Remote Server SSH:) Tj
+ET
+Q
+q
+BT
+0.100 0.450 0.250 rg
+/F3 8 Tf
+1 0 0 1 180.00 400.00 Tm
+(ssh root@66.116.241.221  \(Legacy IP: 66.116.243.31\)) Tj
+ET
+Q
+q
+BT
+0.200 0.250 0.350 rg
+/F2 8 Tf
+1 0 0 1 55.00 388.00 Tm
+(Remote Directory:) Tj
+ET
+Q
+q
+BT
+0.100 0.450 0.250 rg
+/F3 8 Tf
+1 0 0 1 180.00 388.00 Tm
+(/var/www/lineless-node) Tj
+ET
+Q
+q
+BT
+0.200 0.250 0.350 rg
+/F2 8 Tf
+1 0 0 1 55.00 376.00 Tm
+(Production URL:) Tj
+ET
+Q
+q
+BT
+0.100 0.450 0.250 rg
+/F3 8 Tf
+1 0 0 1 180.00 376.00 Tm
+(https://lineless.goalscripture.in) Tj
+ET
+Q
+q
+BT
+0.200 0.250 0.350 rg
+/F2 8 Tf
+1 0 0 1 55.00 364.00 Tm
+(Admin Portal Login:) Tj
+ET
+Q
+q
+BT
+0.100 0.450 0.250 rg
+/F3 8 Tf
+1 0 0 1 180.00 364.00 Tm
+(https://lineless.goalscripture.in/admin/login) Tj
+ET
+Q
+q
+BT
+0.200 0.250 0.350 rg
+/F2 8 Tf
+1 0 0 1 55.00 352.00 Tm
+(Default Admin User:) Tj
+ET
+Q
+q
+BT
+0.100 0.450 0.250 rg
+/F3 8 Tf
+1 0 0 1 180.00 352.00 Tm
+(admin@gmail.com  /  Admin@123) Tj
+ET
+Q
+q
+BT
+0.200 0.250 0.350 rg
+/F2 8 Tf
+1 0 0 1 55.00 340.00 Tm
+(Keystore Signing:) Tj
+ET
+Q
+q
+BT
+0.100 0.450 0.250 rg
+/F3 8 Tf
+1 0 0 1 180.00 340.00 Tm
+(lineless/creds/billji.jks \(alias: billji\)) Tj
+ET
+Q
+q
+0.850 0.870 0.900 RG
+0.75 w
+40.00 45.00 m
+555.00 45.00 l
+S
+Q
+q
+BT
+0.500 0.550 0.600 rg
+/F1 8 Tf
+1 0 0 1 40.00 32.00 Tm
+(LineLess POS  Project Setup & Architecture Manual) Tj
+ET
+Q
+q
+BT
+0.500 0.550 0.600 rg
+/F1 8 Tf
+1 0 0 1 505.00 32.00 Tm
+(Page 3 of 3) Tj
+ET
+Q
+
+endstream
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+10 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+12 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000127 00000 n 
+0000000292 00000 n 
+0000006924 00000 n 
+0000007089 00000 n 
+0000012960 00000 n 
+0000013125 00000 n 
+0000019988 00000 n 
+0000020058 00000 n 
+0000020134 00000 n 
+0000020203 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+20277
+%%EOF

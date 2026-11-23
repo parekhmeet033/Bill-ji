@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-1234-56789abcdef0",
+		"name": "LineLess Node.js Backend API",
+		"description": "Complete Postman Collection for LineLess POS Express + MySQL + Socket.IO Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"password123\",\n    \"device_id\": \"dev_001\",\n    \"device_type\": \"android\",\n    \"fcm_token\": \"token_001\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": ["{{base_url}}"],
+							"path": ["login"]
+						}
+					}
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Authorization", "value": "Bearer {{auth_token}}" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"device_id\": \"dev_001\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/logout",
+							"host": ["{{base_url}}"],
+							"path": ["logout"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Dashboard & Settings",
+			"item": [
+				{
+					"name": "Dashboard Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Authorization", "value": "Bearer {{auth_token}}" }
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard",
+							"host": ["{{base_url}}"],
+							"path": ["dashboard"]
+						}
+					}
+				},
+				{
+					"name": "Get Settings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Authorization", "value": "Bearer {{auth_token}}" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"get\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/settings",
+							"host": ["{{base_url}}"],
+							"path": ["settings"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Menu & Categories",
+			"item": [
+				{
+					"name": "Category List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Authorization", "value": "Bearer {{auth_token}}" }
+						],
+						"url": {
+							"raw": "{{base_url}}/category-list",
+							"host": ["{{base_url}}"],
+							"path": ["category-list"]
+						}
+					}
+				},
+				{
+					"name": "Menu List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Authorization", "value": "Bearer {{auth_token}}" }
+						],
+						"url": {
+							"raw": "{{base_url}}/menu-list",
+							"host": ["{{base_url}}"],
+							"path": ["menu-list"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Orders List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Authorization", "value": "Bearer {{auth_token}}" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"All\",\n    \"order_type\": \"All\",\n    \"search\": \"\",\n    \"start_date\": \"\",\n    \"end_date\": \"\",\n    \"page\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/orders-list",
+							"host": ["{{base_url}}"],
+							"path": ["orders-list"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3009/api"
+		},
+		{
+			"key": "auth_token",
+			"value": ""
+		}
+	]
+}

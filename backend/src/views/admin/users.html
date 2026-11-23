@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Users · BillJi Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root { --brand: #FE701A; --brand-dark: #E55806; --ink: #1f2a52; }
+    * { font-family: 'Nunito', system-ui, sans-serif; }
+    body { margin: 0; background: #f6f7fb; color: #4b5675; }
+
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 260px; background: #fff; border-right: 1px solid #edf0f7;
+      position: fixed; top: 0; bottom: 0; left: 0; padding: 22px 16px; z-index: 1030; transition: transform .25s ease;
+    }
+    .brand { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 4px 8px 24px; }
+    .brand-img { width:100%; max-width:150px; height:auto; display:block; }
+    .brand-logo { width: 42px; height: 42px; flex: none; border-radius: 10px; background: linear-gradient(135deg,#FE701A,#FF8A3D); color:#fff; display:grid; place-items:center; font-size:22px; }
+    .brand-text { line-height: 1.05; }
+    .brand-text b { color: var(--ink); font-size: 1.15rem; font-weight: 800; }
+    .brand-text b span { color: var(--brand); }
+    .brand-text small { display:block; color:#9aa3b8; font-size:.58rem; letter-spacing:.22em; font-weight:700; margin-top:2px; }
+    .nav-link { display:flex; align-items:center; gap:14px; padding:13px 14px; border-radius:10px; color:#5c6885; font-weight:700; text-decoration:none; margin-bottom:4px; font-size:.98rem; }
+    .nav-link i { font-size:1.15rem; }
+    .nav-link:hover { background:#f2f5fd; color:var(--brand); }
+    .nav-link.active { background:var(--brand); color:#fff; box-shadow:0 6px 16px rgba(67,97,238,.3); }
+
+    .main { flex:1; margin-left:260px; min-width:0; }
+    .topbar { height:64px; background:#fff; border-bottom:1px solid #edf0f7; display:flex; align-items:center; justify-content:space-between; padding:0 24px; position:sticky; top:0; z-index:1020; }
+    .topbar h5 { margin:0; font-weight:800; color:var(--ink); }
+    .content { padding:26px; }
+
+    .panel { background:#fff; border-radius:14px; box-shadow:0 4px 20px rgba(31,42,82,.05); padding:22px 24px; }
+    .panel-controls { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:16px; }
+    .entries { display:flex; align-items:center; gap:8px; color:#6b7490; font-size:.95rem; }
+    .entries select { width:auto; border-radius:8px; }
+    .search-wrap { display:flex; align-items:center; gap:8px; color:#6b7490; }
+    .search-wrap input { border-radius:8px; }
+
+    table.ux { width:100%; border-collapse:collapse; }
+    table.ux thead th { color:var(--ink); font-weight:800; font-size:.92rem; padding:14px 12px; border-bottom:2px solid #eef1f8; white-space:nowrap; cursor:default; }
+    table.ux tbody td { padding:16px 12px; border-bottom:1px solid #f0f2f8; color:#5a647e; vertical-align:middle; }
+    table.ux tbody tr:nth-child(even) { background:#fafbfe; }
+    .shop-name { font-weight:700; color:var(--ink); }
+    .muted { color:#aab2c5; }
+
+    .form-check-input.status-toggle { width:1.3rem; height:1.3rem; cursor:pointer; }
+    .form-check-input.status-toggle:checked { background-color:var(--brand); border-color:var(--brand); }
+
+    .act { display:inline-flex; gap:6px; }
+    .act .btn { width:38px; height:38px; display:inline-grid; place-items:center; padding:0; border-radius:9px; font-size:1rem; }
+    .btn-dl { background:#1aa053; color:#fff; } .btn-dl:hover { background:#15823f; color:#fff; }
+    .btn-ed { background:var(--brand); color:#fff; } .btn-ed:hover { background:var(--brand-dark); color:#fff; }
+    .btn-del { background:#eb4d5c; color:#fff; } .btn-del:hover { background:#d53c4b; color:#fff; }
+    .btn-open { background:#17203a; color:#fff; } .btn-open:hover { background:#0e1628; color:#fff; }
+
+    .pager { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-top:18px; }
+    .pager .info { color:#8a92a8; font-size:.92rem; }
+    .pager .pages { display:flex; gap:6px; }
+    .pager .pages button { border:1px solid #e4e8f2; background:#fff; color:#5a647e; border-radius:8px; padding:7px 14px; font-weight:700; font-size:.9rem; }
+    .pager .pages button.active { background:var(--brand); color:#fff; border-color:var(--brand); }
+    .pager .pages button:disabled { opacity:.5; cursor:not-allowed; }
+
+    .btn-brand { background:var(--brand); border:none; color:#fff; font-weight:700; }
+    .btn-brand:hover { background:var(--brand-dark); color:#fff; }
+    .menu-toggle { display:none; }
+    @media (max-width: 991px) {
+      .sidebar { transform: translateX(-100%); } .sidebar.open { transform: translateX(0); }
+      .main { margin-left:0; } .menu-toggle { display:inline-flex; }
+    }
+    .backdrop { display:none; position:fixed; inset:0; background:rgba(0,0,0,.3); z-index:1025; } .backdrop.show { display:block; }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img src="/assets/billji_wordmark.jpg" alt="BillJi" class="brand-img">
+      </div>
+      <a class="nav-link" href="/admin/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      <a class="nav-link active" href="/admin/users"><i class="bi bi-people"></i> User</a>
+      <a class="nav-link" href="/admin/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-light menu-toggle" id="menuToggle"><i class="bi bi-list fs-4"></i></button>
+          <h5>Users</h5>
+        </div>
+        <span class="fw-semibold" id="meName">Admin</span>
+      </header>
+
+      <main class="content">
+        <div class="panel">
+          <div class="panel-controls">
+            <div class="entries">
+              <span>Show</span>
+              <select class="form-select form-select-sm" id="pageSize">
+                <option>10</option><option>25</option><option>50</option><option>100</option>
+              </select>
+              <span>entries</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <div class="search-wrap"><span>Search:</span><input type="search" id="searchInput" class="form-control form-control-sm"></div>
+              <button class="btn btn-brand btn-sm" id="addBtn"><i class="bi bi-plus-lg me-1"></i>Add</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="ux">
+              <thead>
+                <tr>
+                  <th>Sr No</th><th>Shop Name</th><th>Email</th><th>Phone</th>
+                  <th>Plan Start Date</th><th>Plan End Date</th><th>Status</th><th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <tr><td colspan="8" class="text-center muted py-5">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pager">
+            <div class="info" id="pageInfo">—</div>
+            <div class="pages" id="pages"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div class="modal fade" id="userModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="border:none;border-radius:14px;">
+        <div class="modal-header"><h5 class="modal-title fw-bold" id="modalTitle">Add User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <div id="modalError" class="alert alert-danger py-2" style="display:none"></div>
+          <input type="hidden" id="userId">
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Shop Name</label>
+            <input type="text" class="form-control" id="fName">
+            <small class="text-muted" id="nameHint"></small>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Email</label><input type="email" class="form-control" id="fEmail"></div>
+            <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Phone</label><input type="text" class="form-control" id="fPhone"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Plan Start Date</label><input type="date" class="form-control" id="fStart"></div>
+            <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Plan End Date</label><input type="date" class="form-control" id="fEnd"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Role</label>
+              <select class="form-select" id="fRole"><option value="admin">admin</option><option value="user">user</option><option value="staff">staff</option></select></div>
+            <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Status</label>
+              <select class="form-select" id="fStatus"><option value="1">Active</option><option value="0">Inactive</option></select></div>
+          </div>
+          <div class="mb-1"><label class="form-label fw-semibold">Password <span class="text-muted fw-normal" id="pwHint"></span></label>
+            <input type="text" class="form-control" id="fPassword" autocomplete="new-password"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-brand" id="saveBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Warning Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="border:none;border-radius:14px;">
+        <div class="modal-body text-center py-4">
+          <div style="width:72px;height:72px;border-radius:50%;background:#fdecee;color:#eb4d5c;display:grid;place-items:center;margin:0 auto 16px;font-size:36px;"><i class="bi bi-exclamation-triangle"></i></div>
+          <h4 class="fw-bold" style="color:var(--ink)">Are you sure?</h4>
+          <p class="text-muted mb-0" id="deleteText">This user will be permanently deleted.</p>
+        </div>
+        <div class="modal-footer justify-content-center border-0 pb-4">
+          <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-del px-4" style="width:auto;height:auto;" id="confirmDelete">Yes, delete it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Preview Modal -->
+  <div class="modal fade" id="qrModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content" style="border:none;border-radius:14px;">
+        <div class="modal-header"><h6 class="modal-title fw-bold" id="qrTitle">QR Code</h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body text-center">
+          <img id="qrImg" alt="QR" style="width:220px;height:220px;">
+          <div class="small text-muted mt-2 text-break" id="qrUrl"></div>
+        </div>
+        <div class="modal-footer"><a class="btn btn-brand w-100" id="qrDownload" download>Download PNG</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="qrRender" style="display:none"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+  <script>
+    // Local backend menu URL. Uses the PC's LAN IP so a scanned QR works from a phone.
+    // Change this to match your PC's Wi-Fi IP (same as Flutter devNodeWifiIp).
+    const MENU_BASE = window.location.origin + '/menu/';
+    const api = {
+      list: () => fetch('/admin/api/users', { credentials:'same-origin' }).then(r => r.json()),
+      me: () => fetch('/admin/api/me', { credentials:'same-origin' }).then(r => r.json()),
+      create: (b) => fetch('/admin/api/users', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'same-origin', body:JSON.stringify(b) }).then(r => r.json()),
+      update: (id,b) => fetch('/admin/api/users/'+id, { method:'PUT', headers:{'Content-Type':'application/json'}, credentials:'same-origin', body:JSON.stringify(b) }).then(r => r.json()),
+      remove: (id) => fetch('/admin/api/users/'+id, { method:'DELETE', credentials:'same-origin' }).then(r => r.json()),
+    };
+
+    const userModal = new bootstrap.Modal(document.getElementById('userModal'));
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    const qrModal = new bootstrap.Modal(document.getElementById('qrModal'));
+
+    let allUsers = [], filtered = [], page = 1, pageSize = 10, currentAdminId = null, pendingDeleteId = null;
+
+    const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const menuUrl = u => MENU_BASE + (u.slug || '');
+    function fmt(d){ if(!d) return '—'; const p=String(d).slice(0,10).split('-'); return p.length===3?`${p[2]}-${p[1]}-${p[0]}`:d; }
+
+    async function loadMe(){ const r=await api.me(); if(r&&r.data){ currentAdminId=r.data.id; document.getElementById('meName').textContent=r.data.email||'Admin'; } }
+
+    async function load(){
+      const r = await api.list(); allUsers = (r&&r.data)||[]; applyFilter();
+    }
+
+    function applyFilter(){
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      filtered = !q ? allUsers.slice() : allUsers.filter(u =>
+        [u.name,u.email,u.phone,u.slug].some(v => (v||'').toString().toLowerCase().includes(q)));
+      page = 1; render();
+    }
+
+    function render(){
+      const tbody = document.getElementById('tbody');
+      const total = filtered.length;
+      const pages = Math.max(1, Math.ceil(total/pageSize));
+      if(page>pages) page=pages;
+      const start=(page-1)*pageSize, end=Math.min(start+pageSize,total);
+      const rows = filtered.slice(start,end);
+
+      if(!rows.length){ tbody.innerHTML='<tr><td colspan="8" class="text-center muted py-5">No matching records found.</td></tr>'; }
+      else tbody.innerHTML = rows.map((u,i)=>`
+        <tr>
+          <td>${start+i+1}</td>
+          <td class="shop-name">${esc(u.name)}</td>
+          <td>${esc(u.email)}</td>
+          <td>${esc(u.phone)||'<span class="muted">—</span>'}</td>
+          <td>${fmt(u.plan_start_date)}</td>
+          <td>${fmt(u.plan_end_date)}</td>
+          <td><div class="form-check m-0"><input class="form-check-input status-toggle" type="checkbox" ${Number(u.status)?'checked':''} onchange="toggleStatus(${u.id},this.checked)"></div></td>
+          <td><div class="act">
+            <button class="btn btn-dl" title="Download QR" onclick='showQr(${JSON.stringify(u).replace(/'/g,"&#39;")})'><i class="bi bi-download"></i></button>
+            <button class="btn btn-ed" title="Edit" onclick='openEdit(${JSON.stringify(u).replace(/'/g,"&#39;")})'><i class="bi bi-pencil"></i></button>
+            <button class="btn btn-del" title="Delete" onclick="askDelete(${u.id},'${esc(u.name)}')"><i class="bi bi-trash3"></i></button>
+            <button class="btn btn-open" title="Open menu" onclick="window.open('${esc(menuUrl(u))}','_blank')"><i class="bi bi-box-arrow-up-right"></i></button>
+          </div></td>
+        </tr>`).join('');
+
+      document.getElementById('pageInfo').textContent =
+        total ? `Showing ${start+1} to ${end} of ${total} entries` : 'Showing 0 entries';
+
+      let btns = `<button ${page<=1?'disabled':''} onclick="goTo(${page-1})">Previous</button>`;
+      for(let p=1;p<=pages;p++) btns += `<button class="${p===page?'active':''}" onclick="goTo(${p})">${p}</button>`;
+      btns += `<button ${page>=pages?'disabled':''} onclick="goTo(${page+1})">Next</button>`;
+      document.getElementById('pages').innerHTML = btns;
+    }
+    window.goTo = p => { page=p; render(); };
+
+    // ---- QR ----  (QR encodes the same menu URL as the black "open" button)
+    function showQr(u){
+      const url = menuUrl(u);
+      document.getElementById('qrTitle').textContent = u.name;
+      document.getElementById('qrUrl').textContent = url;
+      const holder = document.getElementById('qrRender');
+      holder.innerHTML = '';
+      try {
+        new QRCode(holder, { text: url, width: 400, height: 400, correctLevel: QRCode.CorrectLevel.M });
+      } catch (e) {
+        alert('QR library failed to load. Check your connection and retry.');
+        return;
+      }
+      // qrcodejs renders a <canvas> (or <img> fallback) synchronously; give it a tick.
+      setTimeout(() => {
+        const canvas = holder.querySelector('canvas');
+        const img = holder.querySelector('img');
+        let dataUrl = null;
+        if (canvas) { try { dataUrl = canvas.toDataURL('image/png'); } catch (e) {} }
+        if (!dataUrl && img) dataUrl = img.src;
+        if (!dataUrl) { alert('Could not generate QR'); return; }
+        document.getElementById('qrImg').src = dataUrl;
+        const dl = document.getElementById('qrDownload');
+        dl.href = dataUrl; dl.download = (u.slug || 'menu') + '-qr.png';
+        qrModal.show();
+      }, 60);
+    }
+    window.showQr = showQr;
+
+    // ---- Status ----
+    async function toggleStatus(id,checked){
+      const r = await api.update(id,{ status: checked?1:0 });
+      if(!(r&&r.success)){ alert((r&&r.message)||'Could not update status'); load(); }
+      else { const u=allUsers.find(x=>x.id===id); if(u) u.status=checked?1:0; }
+    }
+    window.toggleStatus = toggleStatus;
+
+    // ---- Add/Edit ----
+    function err(m){ const b=document.getElementById('modalError'); if(!m){b.style.display='none';return;} b.textContent=m; b.style.display='block'; }
+    function openAdd(){
+      document.getElementById('modalTitle').textContent='Add User';
+      ['userId','fName','fEmail','fPhone','fStart','fEnd','fPassword'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('fRole').value='admin'; document.getElementById('fStatus').value='1';
+      const n=document.getElementById('fName'); n.readOnly=false; document.getElementById('nameHint').textContent='';
+      document.getElementById('pwHint').textContent='(required)';
+      err(''); userModal.show();
+    }
+    function openEdit(u){
+      document.getElementById('modalTitle').textContent='Edit User';
+      document.getElementById('userId').value=u.id;
+      document.getElementById('fName').value=u.name||'';
+      document.getElementById('fEmail').value=u.email||'';
+      document.getElementById('fPhone').value=u.phone||'';
+      document.getElementById('fStart').value=(u.plan_start_date||'').slice(0,10);
+      document.getElementById('fEnd').value=(u.plan_end_date||'').slice(0,10);
+      document.getElementById('fRole').value=u.role||'admin';
+      document.getElementById('fStatus').value=String(Number(u.status)?1:0);
+      document.getElementById('fPassword').value='';
+      const n=document.getElementById('fName'); n.readOnly=false; // allow name editing
+      document.getElementById('nameHint').textContent='';
+      document.getElementById('pwHint').textContent='(leave blank to keep current)';
+      err(''); userModal.show();
+    }
+    window.openEdit = openEdit;
+
+    async function save(){
+      const id=document.getElementById('userId').value;
+      const payload={
+        email:document.getElementById('fEmail').value.trim(),
+        phone:document.getElementById('fPhone').value.trim(),
+        role:document.getElementById('fRole').value,
+        status:Number(document.getElementById('fStatus').value),
+        plan_start_date:document.getElementById('fStart').value||null,
+        plan_end_date:document.getElementById('fEnd').value||null,
+      };
+      const pw=document.getElementById('fPassword').value; if(pw) payload.password=pw;
+      if(!id){ payload.name=document.getElementById('fName').value.trim(); }
+
+      if(!payload.email){ err('Email is required.'); return; }
+      if(!id && !payload.name){ err('Shop name is required.'); return; }
+      if(!id && !pw){ err('Password is required for a new user.'); return; }
+
+      const btn=document.getElementById('saveBtn'); btn.disabled=true; btn.textContent='Saving…';
+      const r = id ? await api.update(id,payload) : await api.create(payload);
+      btn.disabled=false; btn.textContent='Save';
+      if(r&&r.success){ userModal.hide(); load(); } else err((r&&r.message)||'Something went wrong.');
+    }
+
+    // ---- Delete ----
+    function askDelete(id,name){
+      if(id===currentAdminId){ alert('You cannot delete the account you are logged in with.'); return; }
+      pendingDeleteId=id;
+      document.getElementById('deleteText').textContent='Delete "'+name+'"? This cannot be undone.';
+      deleteModal.show();
+    }
+    window.askDelete = askDelete;
+    document.getElementById('confirmDelete').addEventListener('click', async ()=>{
+      if(!pendingDeleteId) return;
+      const r=await api.remove(pendingDeleteId); deleteModal.hide(); pendingDeleteId=null;
+      if(r&&r.success) load(); else alert((r&&r.message)||'Could not delete user.');
+    });
+
+    document.getElementById('addBtn').addEventListener('click', openAdd);
+    document.getElementById('saveBtn').addEventListener('click', save);
+    document.getElementById('searchInput').addEventListener('input', applyFilter);
+    document.getElementById('pageSize').addEventListener('change', e=>{ pageSize=Number(e.target.value); page=1; render(); });
+
+    const sidebar=document.getElementById('sidebar'), backdrop=document.getElementById('backdrop');
+    document.getElementById('menuToggle').addEventListener('click',()=>{ sidebar.classList.add('open'); backdrop.classList.add('show'); });
+    backdrop.addEventListener('click',()=>{ sidebar.classList.remove('open'); backdrop.classList.remove('show'); });
+
+    loadMe(); load();
+  </script>
+</body>
+</html>
