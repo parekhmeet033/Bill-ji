@@ -458,11 +458,11 @@ class _SupportScreenState extends State<SupportScreen> {
             _buildSocialImage(
               'assets/images/fb.png',
               () => _launchUrl(
-                "https://www.facebook.com/people/GS-Technologies/61589825966944/?mibextid=wwXIfr&rdid=r4ghqPWNFD26IAjK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1En34fiwTp%2F%3Fmibextid%3DwwXIfr",
+                "https://www.facebook.com/profile.php?id=61596494626375",
               ),
             ),
             SizedBox(width: 20.w),
-            _buildSocialImage('assets/images/instagram.png', () => _launchUrl("https://www.instagram.com/goal_scripture/")),
+            _buildSocialImage('assets/images/instagram.png', () => _launchUrl("https://www.instagram.com/billji.official/?hl=en")),
             SizedBox(width: 20.w),
             _buildSocialImage(
               'assets/images/linkedin.png',
