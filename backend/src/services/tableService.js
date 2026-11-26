@@ -12,6 +12,13 @@ class TableService {
     emitDashboardUpdate(userId);
     return result;
   }
+
+  async cancelTableOrder(userId, tableNo) {
+    const result = await tableRepository.cancelTableOrder(userId, tableNo);
+    // Realtime notification to dashboard & kitchen & tables
+    emitDashboardUpdate(userId);
+    return result;
+  }
 }
 
 module.exports = new TableService();

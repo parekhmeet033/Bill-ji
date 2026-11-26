@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Minus, ShoppingCart, ArrowLeft } from 'lucide-react';
-import { fetchTableProducts, placePosOrder } from './tablesApi';
+import { Plus, Minus, ShoppingCart, ArrowLeft, XCircle } from 'lucide-react';
+import { fetchTableProducts, placePosOrder, clearPosDraft } from './tablesApi';
 import { useApiQuery } from '../../core/useApiQuery';
 import { PageHeader, Card, Loader, ErrorState } from '../../components/ui';
 
@@ -22,6 +22,8 @@ export default function PosPage() {
   const [note, setNote] = useState('');
   const [payment, setPayment] = useState('upi');
   const [placing, setPlacing] = useState(false);
+  const [cancelling, setCancelling] = useState(false);
+  const [showCancelModal, setShowCancelModal] = useState(false);
   const [msg, setMsg] = useState('');
 
   const cats = categories || [];
@@ -81,6 +83,21 @@ export default function PosPage() {
       setMsg(e?.message || 'Failed to place order.');
       setPlacing(false);
     }
+  };
+
+  const handleConfirmCancel = async () => {
+    setCancelling(true);
+    setMsg('');
+    try {
+      await clearPosDraft();
+    } catch { /* ignore */ }
+    setCart({});
+    setName('');
+    setMobile('');
+    setNote('');
+    setCancelling(false);
+    setShowCancelModal(false);
+    navigate('/app/tables', { replace: true });
   };
 
   if (loading) return <><PageHeader title="New Takeaway" /><Loader /></>;
@@ -223,12 +240,56 @@ export default function PosPage() {
               <span className="text-xl font-black text-primary">{money(total)}</span>
             </div>
             {msg && <p className="mt-2 text-sm font-semibold text-red-500">{msg}</p>}
-            <button onClick={place} disabled={placing || lines.length === 0} className="mt-3 w-full rounded-2xl bg-primary py-3 font-bold text-white hover:bg-primary-dark disabled:opacity-60">
+            <button onClick={place} disabled={placing || cancelling || lines.length === 0} className="mt-3 w-full rounded-2xl bg-primary py-3 font-bold text-white hover:bg-primary-dark disabled:opacity-60">
               {placing ? 'Placing…' : `Place order · ${money(total)}`}
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowCancelModal(true)}
+              disabled={placing || cancelling || (lines.length === 0 && !name && !mobile && !note)}
+              className="mt-2.5 flex w-full items-center justify-center gap-2 rounded-2xl border border-red-200 bg-red-50/70 py-2.5 text-xs font-bold text-red-600 transition-all hover:bg-red-100 hover:border-red-300 active:scale-[0.99] disabled:opacity-40 dark:border-red-900/50 dark:bg-red-950/20 dark:text-red-400 dark:hover:bg-red-950/40"
+              title="Cancel this takeaway order"
+            >
+              <XCircle className="h-4 w-4" />
+              <span>Cancel Order</span>
             </button>
           </Card>
         </div>
       </div>
+
+      {/* Cancel Order Confirmation Modal */}
+      {showCancelModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onClick={() => !cancelling && setShowCancelModal(false)} />
+          <div className="relative z-10 w-full max-w-sm rounded-3xl bg-white p-6 shadow-2xl dark:bg-slate-900 dark:border dark:border-slate-800">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-red-600 dark:bg-red-950/40 dark:text-red-400 mb-4">
+              <XCircle className="h-6 w-6" />
+            </div>
+            <h3 className="text-lg font-black text-slate-900 dark:text-slate-100">Cancel Takeaway Order?</h3>
+            <p className="mt-1 text-xs text-slate-500 leading-relaxed dark:text-slate-400">
+              This will discard all items in your cart and reset this order.
+            </p>
+            <div className="mt-5 flex gap-2">
+              <button
+                type="button"
+                disabled={cancelling}
+                onClick={() => setShowCancelModal(false)}
+                className="flex-1 rounded-xl border border-slate-200 py-2.5 text-xs font-bold text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+              >
+                Keep Order
+              </button>
+              <button
+                type="button"
+                disabled={cancelling}
+                onClick={handleConfirmCancel}
+                className="flex-1 rounded-xl bg-red-500 py-2.5 text-xs font-bold text-white hover:bg-red-600 disabled:opacity-50 transition-colors shadow-sm"
+              >
+                {cancelling ? 'Cancelling…' : 'Yes, Cancel'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

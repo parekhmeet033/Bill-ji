@@ -75,8 +75,8 @@ class TableRepository {
       cash_amount
     } = data;
 
-    const isFinal = order_status === 'completed' || order_status === 'dispatched';
-    const sessionStatus = order_status === 'running' ? 'running' : 'pending';
+    const isFinal = order_status === 'completed' || order_status === 'dispatched' || order_status === 'cancelled';
+    const sessionStatus = order_status === 'running' ? 'running' : (order_status === 'cancelled' ? 'cancelled' : 'pending');
     const connection = await pool.getConnection();
 
     try {
@@ -150,7 +150,8 @@ class TableRepository {
 
       if (active) {
         orderId = active.id;
-        let sql = `UPDATE orders SET customer_name = ?, customer_mobile = ?, order_note = ?, subtotal_amount = ?, gst_amount = ?, cgst_amount = ?, sgst_amount = ?, total_amount = ?, status = ?`;
+        let finalStatus = isFinal ? order_status.toLowerCase() : sessionStatus;
+        let sql = `UPDATE orders SET customer_name = ?, customer_mobile = ?, order_note = ?, subtotal_amount = ?, gst_amount = ?, cgst_amount = ?, sgst_amount = ?, total_amount = ?, status = ?, order_status = ?`;
         const params = [
           customer_name || 'Walk-in Customer',
           customer_mobile || 'N/A',
@@ -160,7 +161,8 @@ class TableRepository {
           cgstAmount,
           sgstAmount,
           grandTotal,
-          isFinal ? order_status.toLowerCase() : sessionStatus
+          finalStatus,
+          finalStatus
         ];
         if (isFinal) {
           sql += ', payment_type = ?, upi_amount = ?, cash_amount = ?';
@@ -233,6 +235,27 @@ class TableRepository {
     } finally {
       connection.release();
     }
+  }
+
+  async cancelTableOrder(userId, tableNo) {
+    const uids = (Number(userId) === 1 || Number(userId) === 2) ? [1, 2] : [userId];
+    const [rows] = await pool.query(
+      `SELECT id FROM orders
+       WHERE user_id IN (?) AND table_no = ? AND order_type = 'dine_in' AND status IN ('pending','running')
+       ORDER BY id DESC`,
+      [uids, tableNo]
+    );
+    if (!rows || rows.length === 0) {
+      return { message: 'No active order for this table', cancelled: false };
+    }
+    const ids = rows.map((r) => r.id);
+    await pool.query(
+      `UPDATE orders
+       SET status = 'cancelled', order_status = 'cancelled', updated_at = NOW()
+       WHERE id IN (?)`,
+      [ids]
+    );
+    return { order_ids: ids, cancelled: true };
   }
 }
 

@@ -19,6 +19,19 @@ class TableController {
       return errorResponse(res, err.message || 'Failed to save table order', 400);
     }
   }
+
+  async cancelTableOrder(req, res, next) {
+    try {
+      const { table_no } = req.body;
+      if (!table_no) {
+        return errorResponse(res, 'table_no is required', 400);
+      }
+      const result = await tableService.cancelTableOrder(req.user.id, table_no);
+      return successResponse(res, 'Table order cancelled successfully', result);
+    } catch (err) {
+      return errorResponse(res, err.message || 'Failed to cancel table order', 400);
+    }
+  }
 }
 
 module.exports = new TableController();

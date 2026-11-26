@@ -16,7 +16,6 @@ import {
   CheckCircle2,
   X
 } from 'lucide-react';
-import { Card } from '../../components/ui';
 
 const WEBSITE = 'https://bill-ji.com/';
 const PHONE_1 = '+919974723326';
@@ -24,12 +23,12 @@ const PHONE_2 = '+919409111116';
 const EMAIL = 'billji.support@gmail.com';
 const ADDRESS = 'Hindva Pride, 104, Amar Jawan Cir, nr. Sankalp School Road, Nikol, Ahmedabad, Gujarat 382350';
 const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
-const WHATSAPP_URL = `https://wa.me/919974723326`;
-const FB_URL = 'https://www.facebook.com/people/GS-Technologies/61589825966944/';
-const INSTA_URL = 'https://www.instagram.com/goal_scripture/';
+const WHATSAPP_URL = 'https://wa.me/919974723326';
+const FB_URL = 'https://www.facebook.com/profile.php?id=61596494626375';
+const INSTA_URL = 'https://www.instagram.com/billji.official/?hl=en';
 const LINKEDIN_URL = 'https://www.linkedin.com/company/goal-scripture/';
 
-// Vector Icons
+// Vector Brand Icons
 function WhatsAppIcon({ className = 'h-5 w-5' }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -106,119 +105,121 @@ export default function SupportPage() {
   };
 
   return (
-    <>
-      {/* Curved Branded Orange Header matching mobile UI */}
-      <div className="relative -mx-4 -mt-6 mb-8 overflow-hidden rounded-b-[2.5rem] bg-gradient-to-r from-[#FE701A] via-orange-500 to-amber-500 px-5 pb-12 pt-6 text-white shadow-lg md:-mx-8 md:px-10 md:pb-14 md:pt-8">
-        {/* Large Translucent Headset Watermark */}
-        <Headphones
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-6 -right-4 h-32 w-32 text-white/20 select-none md:h-44 md:w-44"
-        />
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 antialiased font-sans transition-colors">
+      {/* Top Container with Centered Constraint */}
+      <div className="mx-auto max-w-md sm:max-w-lg lg:max-w-xl">
+        {/* Curved Branded Orange Header (matching exact mobile design) */}
+        <div className="relative overflow-hidden rounded-b-[2.2rem] sm:rounded-b-[2.5rem] bg-gradient-to-br from-[#FE701A] to-[#FF8A3D] px-5 pb-8 pt-5 text-white shadow-lg">
+          {/* Large Translucent Headset Watermark in Top-Right */}
+          <Headphones
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-3 -top-2 h-28 w-28 text-white/20 select-none stroke-[1.5] sm:h-36 sm:w-36"
+          />
 
-        {/* Top Back Navigation Bar */}
-        <div className="relative z-10 flex items-center justify-between">
-          <button
-            onClick={() => navigate('/app/settings')}
-            className="flex items-center gap-2 rounded-full bg-white/20 px-3.5 py-1.5 text-xs font-bold text-white backdrop-blur-md transition-all duration-200 hover:bg-white hover:text-primary active:scale-95"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            <span>Settings</span>
-          </button>
+          {/* Top Back Navigation Bar */}
+          <div className="relative z-10 flex items-center">
+            <button
+              type="button"
+              onClick={() => navigate('/app/settings')}
+              aria-label="Back to Settings"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-transform hover:scale-110 active:scale-95 focus:outline-none"
+            >
+              <ArrowLeft className="h-6 w-6 stroke-[2.5]" />
+            </button>
+          </div>
+
+          {/* Header Title & Subtitle */}
+          <div className="relative z-10 mt-3 px-1">
+            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Contact &amp; Support
+            </h1>
+            <p className="mt-1 text-sm font-medium text-white/90">
+              We&apos;re here to help you!
+            </p>
+          </div>
         </div>
 
-        {/* Header Title & Subtitle */}
-        <div className="relative z-10 mt-4 max-w-2xl">
-          <h1 className="text-2xl font-black tracking-tight text-white md:text-3xl">
-            Contact &amp; Support
-          </h1>
-          <p className="mt-1 text-sm font-medium text-white/90">
-            We&apos;re here to help you! Reach out via phone, email, or send us a direct message.
-          </p>
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-2xl space-y-6 pb-12">
-        {/* Contact Information Card */}
-        <div>
-          <h2 className="mb-2 pl-1 text-[15px] font-bold text-slate-800 dark:text-slate-200">Contact Information</h2>
-          <Card className="overflow-hidden p-0">
-            <div className="divide-y divide-slate-100 dark:divide-slate-800">
+        {/* Content Section */}
+        <div className="space-y-6 px-4 py-6">
+          {/* 1. Contact Information Card */}
+          <div className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm dark:border-slate-800/80 dark:bg-[#161F30]">
+            <div className="divide-y divide-slate-100 dark:divide-slate-800/80">
               {/* Website */}
               <a
                 href={WEBSITE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between p-4 transition-all duration-200 hover:bg-orange-50/80 dark:hover:bg-primary/10"
+                className="group flex items-center justify-between p-4 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-200 group-hover:bg-primary group-hover:text-white group-hover:scale-105">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-orange-500/10 text-primary dark:bg-orange-500/15">
                     <Globe className="h-5 w-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Website</p>
-                    <p className="truncate text-sm font-bold text-slate-800 transition-colors group-hover:text-primary dark:text-slate-100">
+                    <p className="text-xs font-medium text-slate-400 dark:text-slate-400">Website</p>
+                    <p className="truncate text-sm font-semibold text-slate-800 dark:text-white">
                       {WEBSITE}
                     </p>
                   </div>
                 </div>
-                <ChevronRight className="h-5 w-5 shrink-0 text-slate-300 transition-all duration-200 group-hover:translate-x-1 group-hover:text-primary dark:text-slate-600" />
+                <ChevronRight className="h-5 w-5 shrink-0 text-slate-400 dark:text-slate-500 transition-transform group-hover:translate-x-0.5" />
               </a>
 
               {/* Phone 1 */}
               <a
                 href={`tel:${PHONE_1}`}
-                className="group flex items-center justify-between p-4 transition-all duration-200 hover:bg-orange-50/80 dark:hover:bg-primary/10"
+                className="group flex items-center justify-between p-4 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-200 group-hover:bg-primary group-hover:text-white group-hover:scale-105">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-orange-500/10 text-primary dark:bg-orange-500/15">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Phone</p>
-                    <p className="truncate text-sm font-bold text-slate-800 transition-colors group-hover:text-primary dark:text-slate-100">
+                    <p className="text-xs font-medium text-slate-400 dark:text-slate-400">Phone</p>
+                    <p className="truncate text-sm font-semibold text-slate-800 dark:text-white">
                       {PHONE_1}
                     </p>
                   </div>
                 </div>
-                <ChevronRight className="h-5 w-5 shrink-0 text-slate-300 transition-all duration-200 group-hover:translate-x-1 group-hover:text-primary dark:text-slate-600" />
+                <ChevronRight className="h-5 w-5 shrink-0 text-slate-400 dark:text-slate-500 transition-transform group-hover:translate-x-0.5" />
               </a>
 
               {/* Phone 2 */}
               <a
                 href={`tel:${PHONE_2}`}
-                className="group flex items-center justify-between p-4 transition-all duration-200 hover:bg-orange-50/80 dark:hover:bg-primary/10"
+                className="group flex items-center justify-between p-4 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-200 group-hover:bg-primary group-hover:text-white group-hover:scale-105">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-orange-500/10 text-primary dark:bg-orange-500/15">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Phone (Alternative)</p>
-                    <p className="truncate text-sm font-bold text-slate-800 transition-colors group-hover:text-primary dark:text-slate-100">
+                    <p className="text-xs font-medium text-slate-400 dark:text-slate-400">Phone</p>
+                    <p className="truncate text-sm font-semibold text-slate-800 dark:text-white">
                       {PHONE_2}
                     </p>
                   </div>
                 </div>
-                <ChevronRight className="h-5 w-5 shrink-0 text-slate-300 transition-all duration-200 group-hover:translate-x-1 group-hover:text-primary dark:text-slate-600" />
+                <ChevronRight className="h-5 w-5 shrink-0 text-slate-400 dark:text-slate-500 transition-transform group-hover:translate-x-0.5" />
               </a>
 
               {/* Email */}
               <a
                 href={`mailto:${EMAIL}`}
-                className="group flex items-center justify-between p-4 transition-all duration-200 hover:bg-orange-50/80 dark:hover:bg-primary/10"
+                className="group flex items-center justify-between p-4 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-200 group-hover:bg-primary group-hover:text-white group-hover:scale-105">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-orange-500/10 text-primary dark:bg-orange-500/15">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Email</p>
-                    <p className="truncate text-sm font-bold text-slate-800 transition-colors group-hover:text-primary dark:text-slate-100">
+                    <p className="text-xs font-medium text-slate-400 dark:text-slate-400">Email</p>
+                    <p className="truncate text-sm font-semibold text-slate-800 dark:text-white">
                       {EMAIL}
                     </p>
                   </div>
                 </div>
-                <ChevronRight className="h-5 w-5 shrink-0 text-slate-300 transition-all duration-200 group-hover:translate-x-1 group-hover:text-primary dark:text-slate-600" />
+                <ChevronRight className="h-5 w-5 shrink-0 text-slate-400 dark:text-slate-500 transition-transform group-hover:translate-x-0.5" />
               </a>
 
               {/* Address */}
@@ -226,40 +227,38 @@ export default function SupportPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start justify-between p-4 transition-all duration-200 hover:bg-orange-50/80 dark:hover:bg-primary/10"
+                className="group flex items-start justify-between p-4 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
               >
                 <div className="flex items-start gap-3.5 min-w-0">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-200 group-hover:bg-primary group-hover:text-white group-hover:scale-105 mt-0.5">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-orange-500/10 text-primary dark:bg-orange-500/15 mt-0.5">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 pr-2">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Address</p>
-                    <p className="text-sm font-semibold leading-relaxed text-slate-800 transition-colors group-hover:text-primary dark:text-slate-100">
+                    <p className="text-xs font-medium text-slate-400 dark:text-slate-400">Address</p>
+                    <p className="text-sm font-semibold leading-relaxed text-slate-800 dark:text-white">
                       {ADDRESS}
                     </p>
                   </div>
                 </div>
-                <ChevronRight className="h-5 w-5 shrink-0 text-slate-300 transition-all duration-200 group-hover:translate-x-1 group-hover:text-primary dark:text-slate-600 mt-2" />
+                <ChevronRight className="h-5 w-5 shrink-0 text-slate-400 dark:text-slate-500 transition-transform group-hover:translate-x-0.5 mt-2" />
               </a>
             </div>
-          </Card>
-        </div>
+          </div>
 
-        {/* Quick Actions */}
-        <div>
-          <h2 className="mb-2 pl-1 text-[15px] font-bold text-slate-800 dark:text-slate-200">Quick Actions</h2>
-          <Card className="p-4">
-            <div className="grid grid-cols-4 gap-2 text-center sm:gap-4">
+          {/* 2. Quick Actions */}
+          <div>
+            <h2 className="mb-3 px-1 text-[15px] font-bold text-slate-900 dark:text-white">Quick Actions</h2>
+            <div className="grid grid-cols-4 gap-2.5 sm:gap-3 text-center">
               {/* Call Now */}
               <button
                 type="button"
                 onClick={() => setShowCallModal(true)}
-                className="group flex flex-col items-center focus:outline-none"
+                className="group flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition-all hover:scale-[1.02] active:scale-95 dark:border-slate-800/80 dark:bg-[#161F30]"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-all duration-200 group-hover:scale-105 group-hover:bg-emerald-500 group-hover:text-white group-active:scale-95 dark:bg-emerald-950/40 dark:text-emerald-400 dark:group-hover:bg-emerald-500 dark:group-hover:text-white shadow-sm">
-                  <Phone className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-500 dark:bg-emerald-500/15">
+                  <Phone className="h-5 w-5" />
                 </div>
-                <span className="mt-2 text-xs font-bold text-slate-700 transition-colors group-hover:text-primary dark:text-slate-300">Call Now</span>
+                <span className="mt-2 text-xs font-bold text-slate-800 dark:text-slate-200">Call Now</span>
               </button>
 
               {/* WhatsApp */}
@@ -267,23 +266,23 @@ export default function SupportPage() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center focus:outline-none"
+                className="group flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition-all hover:scale-[1.02] active:scale-95 dark:border-slate-800/80 dark:bg-[#161F30]"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-50 text-green-600 transition-all duration-200 group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white group-active:scale-95 dark:bg-green-950/40 dark:text-green-400 dark:group-hover:bg-[#25D366] dark:group-hover:text-white shadow-sm">
-                  <WhatsAppIcon className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#25D366]/10 text-[#25D366] dark:bg-[#25D366]/15">
+                  <WhatsAppIcon className="h-5 w-5" />
                 </div>
-                <span className="mt-2 text-xs font-bold text-slate-700 transition-colors group-hover:text-primary dark:text-slate-300">WhatsApp</span>
+                <span className="mt-2 text-xs font-bold text-slate-800 dark:text-slate-200">WhatsApp</span>
               </a>
 
               {/* Send Email */}
               <a
                 href={`mailto:${EMAIL}`}
-                className="group flex flex-col items-center focus:outline-none"
+                className="group flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition-all hover:scale-[1.02] active:scale-95 dark:border-slate-800/80 dark:bg-[#161F30]"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-all duration-200 group-hover:scale-105 group-hover:bg-blue-500 group-hover:text-white group-active:scale-95 dark:bg-blue-950/40 dark:text-blue-400 dark:group-hover:bg-blue-500 dark:group-hover:text-white shadow-sm">
-                  <Mail className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-500 dark:bg-sky-500/15">
+                  <Mail className="h-5 w-5" />
                 </div>
-                <span className="mt-2 text-xs font-bold text-slate-700 transition-colors group-hover:text-primary dark:text-slate-300">Send Email</span>
+                <span className="mt-2 text-xs font-bold text-slate-800 dark:text-slate-200">Send Email</span>
               </a>
 
               {/* Get Direction */}
@@ -291,131 +290,115 @@ export default function SupportPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center focus:outline-none"
+                className="group flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition-all hover:scale-[1.02] active:scale-95 dark:border-slate-800/80 dark:bg-[#161F30]"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-50 text-purple-600 transition-all duration-200 group-hover:scale-105 group-hover:bg-purple-500 group-hover:text-white group-active:scale-95 dark:bg-purple-950/40 dark:text-purple-400 dark:group-hover:bg-purple-500 dark:group-hover:text-white shadow-sm">
-                  <MapPin className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-500 dark:bg-purple-500/15">
+                  <MapPin className="h-5 w-5" />
                 </div>
-                <span className="mt-2 text-xs font-bold text-slate-700 transition-colors group-hover:text-primary dark:text-slate-300">Get Direction</span>
+                <span className="mt-2 text-xs font-bold text-slate-800 dark:text-slate-200">Get Direction</span>
               </a>
             </div>
-          </Card>
-        </div>
+          </div>
 
-        {/* Support Hours & Need Help Side-by-Side */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Support Hours */}
-          <Card className="p-5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
-              <Clock className="h-5 w-5" />
+          {/* 3. Support Hours & Need Help Side-by-Side */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {/* Support Hours */}
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800/80 dark:bg-[#161F30]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-500 dark:bg-sky-500/15">
+                <Clock className="h-5 w-5" />
+              </div>
+              <h3 className="mt-3 text-sm font-bold text-slate-900 dark:text-white">Support Hours</h3>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Monday - Saturday</p>
+              <p className="text-xs font-medium text-slate-400 dark:text-slate-500">10:00 AM - 7:00 PM</p>
             </div>
-            <h3 className="mt-3 text-sm font-bold text-slate-800 dark:text-slate-200">Support Hours</h3>
-            <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">Monday - Saturday</p>
-            <p className="text-xs font-semibold text-slate-400">10:00 AM - 7:00 PM</p>
-          </Card>
 
-          {/* Need Help */}
-          <Card className="p-5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600 dark:bg-purple-950/40 dark:text-purple-400">
-              <Headphones className="h-5 w-5" />
+            {/* Need Help? */}
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800/80 dark:bg-[#161F30]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500/10 text-purple-500 dark:bg-purple-500/15">
+                <Headphones className="h-5 w-5" />
+              </div>
+              <h3 className="mt-3 text-sm font-bold text-slate-900 dark:text-white">Need Help?</h3>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                Our support team typically responds within 24 hours.
+              </p>
             </div>
-            <h3 className="mt-3 text-sm font-bold text-slate-800 dark:text-slate-200">Need Help?</h3>
-            <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-              Our dedicated support team typically responds within 24 hours.
-            </p>
-          </Card>
-        </div>
+          </div>
 
-        {/* Send Us a Message Form Card */}
-        <div>
-          <h2 className="mb-2 pl-1 text-[15px] font-bold text-slate-800 dark:text-slate-200">Send Us a Message</h2>
-          <Card className="p-6">
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Have an inquiry or need technical support? Fill in the details below and we&apos;ll be in touch.
-            </p>
+          {/* 4. Send Us a Message */}
+          <div className="rounded-3xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-sm dark:border-slate-800/80 dark:bg-[#161F30]">
+            <h2 className="mb-4 text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Send Us a Message
+            </h2>
 
             {submitted && (
-              <div className="mt-4 flex items-center gap-2.5 rounded-xl border border-emerald-500/30 bg-emerald-50 p-3.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400">
+              <div className="mb-4 flex items-center gap-2.5 rounded-2xl border border-emerald-500/30 bg-emerald-50 p-3.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400">
                 <CheckCircle2 className="h-4 w-4 shrink-0" />
-                <span>Thank you! Your message has been sent successfully. Our team will contact you shortly.</span>
+                <span>Thank you! Your message has been sent successfully. We will get back to you shortly.</span>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="mt-4 space-y-3.5">
+            <form onSubmit={handleSubmit} className="space-y-3.5">
               {/* Name & Mobile side by side */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="mb-1 block text-xs font-bold text-slate-600 dark:text-slate-300">Your Name *</label>
-                  <div className="relative">
-                    <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="text"
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="e.g. Rahul Sharma"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:bg-slate-900"
-                    />
-                  </div>
+                <div className="relative">
+                  <User className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                  <input
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your Name"
+                    className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 py-3 pl-10 pr-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-800 dark:bg-[#0B1120] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-primary dark:focus:bg-[#080d19]"
+                  />
                 </div>
 
-                <div>
-                  <label className="mb-1 block text-xs font-bold text-slate-600 dark:text-slate-300">Mobile Number *</label>
-                  <div className="relative">
-                    <Smartphone className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="tel"
-                      required
-                      value={mobile}
-                      onChange={(e) => setMobile(e.target.value)}
-                      placeholder="10-digit mobile"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:bg-slate-900"
-                    />
-                  </div>
+                <div className="relative">
+                  <Smartphone className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                  <input
+                    type="tel"
+                    required
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
+                    placeholder="Mobile Nu..."
+                    className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 py-3 pl-10 pr-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-800 dark:bg-[#0B1120] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-primary dark:focus:bg-[#080d19]"
+                  />
                 </div>
               </div>
 
               {/* Email Address */}
-              <div>
-                <label className="mb-1 block text-xs font-bold text-slate-600 dark:text-slate-300">Email Address *</label>
-                <div className="relative">
-                  <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:bg-slate-900"
-                  />
-                </div>
+              <div className="relative">
+                <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email Address"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 py-3 pl-10 pr-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-800 dark:bg-[#0B1120] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-primary dark:focus:bg-[#080d19]"
+                />
               </div>
 
               {/* Subject */}
-              <div>
-                <label className="mb-1 block text-xs font-bold text-slate-600 dark:text-slate-300">Subject</label>
-                <div className="relative">
-                  <AlignLeft className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                  <input
-                    type="text"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                    placeholder="Brief summary of your question"
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:bg-slate-900"
-                  />
-                </div>
+              <div className="relative">
+                <AlignLeft className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  placeholder="Subject"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 py-3 pl-10 pr-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-800 dark:bg-[#0B1120] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-primary dark:focus:bg-[#080d19]"
+                />
               </div>
 
-              {/* Message */}
+              {/* Message Textarea */}
               <div>
-                <label className="mb-1 block text-xs font-bold text-slate-600 dark:text-slate-300">Your Message *</label>
                 <textarea
                   required
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Type your message here..."
-                  className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:bg-slate-900"
+                  className="w-full resize-none rounded-2xl border border-slate-200 bg-slate-50/70 p-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-primary focus:bg-white dark:border-slate-800 dark:bg-[#0B1120] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-primary dark:focus:bg-[#080d19]"
                 />
               </div>
 
@@ -423,21 +406,18 @@ export default function SupportPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-white shadow-md hover:bg-orange-600 active:scale-[0.99] disabled:opacity-60 transition-all"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-primary py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all hover:bg-orange-600 active:scale-[0.99] disabled:opacity-60"
               >
-                <Send className="h-4 w-4" />
-                <span>{submitting ? 'SENDING…' : 'SUBMIT MESSAGE'}</span>
+                <Send className="h-4 w-4 rotate-45" />
+                <span>{submitting ? 'Sending...' : 'Submit Message'}</span>
               </button>
             </form>
-          </Card>
-        </div>
+          </div>
 
-        {/* Follow Us */}
-        <div>
-          <h2 className="mb-2 pl-1 text-[15px] font-bold text-slate-800 dark:text-slate-200">Follow Us</h2>
-          <Card className="flex items-center justify-between p-4">
-            <span className="text-sm font-bold text-slate-700 dark:text-slate-300">Connect with BillJi</span>
-            <div className="flex items-center gap-4">
+          {/* 5. Follow Us */}
+          <div className="flex items-center justify-between px-2 pt-1 pb-4">
+            <span className="text-sm font-bold text-slate-800 dark:text-slate-200">Follow Us</span>
+            <div className="flex items-center gap-3.5">
               <a
                 href={FB_URL}
                 target="_blank"
@@ -466,7 +446,7 @@ export default function SupportPage() {
                 <LinkedInIcon className="h-6 w-6" />
               </a>
             </div>
-          </Card>
+          </div>
         </div>
       </div>
 
@@ -474,13 +454,14 @@ export default function SupportPage() {
       {showCallModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div
-            className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
             onClick={() => setShowCallModal(false)}
           />
-          <div className="relative z-10 w-full max-w-sm rounded-3xl border border-slate-100 bg-white p-6 shadow-2xl dark:border-slate-800 dark:bg-slate-900">
+          <div className="relative z-10 w-full max-w-sm rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-800 dark:bg-[#161F30]">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800">
-              <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">Select Number to Call</h3>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">Select Number to Call</h3>
               <button
+                type="button"
                 onClick={() => setShowCallModal(false)}
                 className="rounded-full bg-slate-100 p-1.5 text-slate-500 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:text-white"
               >
@@ -496,15 +477,15 @@ export default function SupportPage() {
                   key={item.number}
                   href={`tel:${item.number}`}
                   onClick={() => setShowCallModal(false)}
-                  className="flex items-center justify-between rounded-xl border border-slate-100 bg-slate-50 p-3.5 transition-colors hover:border-primary hover:bg-white dark:border-slate-800 dark:bg-slate-800/60 dark:hover:border-primary dark:hover:bg-slate-800"
+                  className="flex items-center justify-between rounded-2xl border border-slate-100 bg-slate-50 p-3.5 transition-colors hover:border-primary hover:bg-white dark:border-slate-800 dark:bg-[#0B1120] dark:hover:border-primary"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500 dark:bg-emerald-500/15">
                       <Phone className="h-4 w-4" />
                     </div>
                     <div>
                       <p className="text-xs text-slate-400">{item.label}</p>
-                      <p className="text-sm font-bold text-slate-900 dark:text-slate-100">{item.number}</p>
+                      <p className="text-sm font-bold text-slate-900 dark:text-white">{item.number}</p>
                     </div>
                   </div>
                   <ChevronRight className="h-4 w-4 text-slate-400 dark:text-slate-500" />
@@ -514,6 +495,6 @@ export default function SupportPage() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

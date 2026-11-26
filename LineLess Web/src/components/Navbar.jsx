@@ -26,10 +26,10 @@ export default function Navbar({ onOpenDemoModal }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/85 backdrop-blur-md shadow-lg border-b border-slate-100 py-3'
-          : 'bg-white/50 backdrop-blur-sm py-4'
+          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-md border-b border-slate-200/80 dark:border-slate-800 py-3'
+          : 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-sm border-b border-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -50,7 +50,7 @@ export default function Navbar({ onOpenDemoModal }) {
             to="/"
             className={({ isActive }) =>
               `font-medium text-sm transition-colors py-2 ${
-                isActive ? 'text-primary font-bold' : 'text-slate-600 hover:text-primary'
+                isActive ? 'text-primary font-bold' : 'text-slate-700 hover:text-primary dark:text-slate-200 dark:hover:text-primary'
               }`
             }
           >
@@ -61,7 +61,7 @@ export default function Navbar({ onOpenDemoModal }) {
             to="/features"
             className={({ isActive }) =>
               `font-medium text-sm transition-colors py-2 ${
-                isActive ? 'text-primary font-bold' : 'text-slate-600 hover:text-primary'
+                isActive ? 'text-primary font-bold' : 'text-slate-700 hover:text-primary dark:text-slate-200 dark:hover:text-primary'
               }`
             }
           >
@@ -72,7 +72,7 @@ export default function Navbar({ onOpenDemoModal }) {
             to="/pricing"
             className={({ isActive }) =>
               `font-medium text-sm transition-colors py-2 ${
-                isActive ? 'text-primary font-bold' : 'text-slate-600 hover:text-primary'
+                isActive ? 'text-primary font-bold' : 'text-slate-700 hover:text-primary dark:text-slate-200 dark:hover:text-primary'
               }`
             }
           >
@@ -83,7 +83,7 @@ export default function Navbar({ onOpenDemoModal }) {
             to="/tutorial"
             className={({ isActive }) =>
               `font-medium text-sm transition-colors py-2 ${
-                isActive ? 'text-primary font-bold' : 'text-slate-600 hover:text-primary'
+                isActive ? 'text-primary font-bold' : 'text-slate-700 hover:text-primary dark:text-slate-200 dark:hover:text-primary'
               }`
             }
           >
@@ -94,7 +94,7 @@ export default function Navbar({ onOpenDemoModal }) {
             to="/about"
             className={({ isActive }) =>
               `font-medium text-sm transition-colors py-2 ${
-                isActive ? 'text-primary font-bold' : 'text-slate-600 hover:text-primary'
+                isActive ? 'text-primary font-bold' : 'text-slate-700 hover:text-primary dark:text-slate-200 dark:hover:text-primary'
               }`
             }
           >
@@ -105,7 +105,7 @@ export default function Navbar({ onOpenDemoModal }) {
             to="/contact"
             className={({ isActive }) =>
               `font-medium text-sm transition-colors py-2 ${
-                isActive ? 'text-primary font-bold' : 'text-slate-600 hover:text-primary'
+                isActive ? 'text-primary font-bold' : 'text-slate-700 hover:text-primary dark:text-slate-200 dark:hover:text-primary'
               }`
             }
           >
@@ -117,7 +117,7 @@ export default function Navbar({ onOpenDemoModal }) {
         <div className="hidden lg:flex items-center space-x-3">
           <Link
             to="/login"
-            className="flex items-center space-x-2 border border-slate-200 text-secondary hover:border-primary hover:text-primary px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300"
+            className="flex items-center space-x-2 border border-slate-200 text-slate-800 dark:border-slate-700 dark:text-slate-200 hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300"
           >
             <LogIn className="w-4 h-4" />
             <span>Login</span>
@@ -135,7 +135,7 @@ export default function Navbar({ onOpenDemoModal }) {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors"
+          className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -149,31 +149,31 @@ export default function Navbar({ onOpenDemoModal }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-2xl py-6 px-6 flex flex-col space-y-3 lg:hidden text-left"
+            className="absolute top-full left-0 right-0 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-2xl py-6 px-6 flex flex-col space-y-3 lg:hidden text-left"
           >
-            <NavLink to="/" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 hover:bg-slate-50">
+            <NavLink to="/" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">
               Home
             </NavLink>
-            <NavLink to="/features" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 hover:bg-slate-50">
+            <NavLink to="/features" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">
               Features
             </NavLink>
-            <NavLink to="/pricing" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 hover:bg-slate-50">
+            <NavLink to="/pricing" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">
               Pricing
             </NavLink>
-            <NavLink to="/tutorial" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 hover:bg-slate-50">
+            <NavLink to="/tutorial" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">
               Tutorials
             </NavLink>
-            <NavLink to="/about" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 hover:bg-slate-50">
+            <NavLink to="/about" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">
               About
             </NavLink>
-            <NavLink to="/contact" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 hover:bg-slate-50">
+            <NavLink to="/contact" className="text-base font-semibold px-4 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">
               Contact
             </NavLink>
 
-            <div className="pt-4 border-t border-slate-100 flex flex-col space-y-2">
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col space-y-2">
               <Link
                 to="/login"
-                className="w-full flex items-center justify-center space-x-2 border border-slate-200 text-secondary py-3 rounded-full font-bold transition-all"
+                className="w-full flex items-center justify-center space-x-2 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 py-3 rounded-full font-bold transition-all"
               >
                 <LogIn className="w-4 h-4" />
                 <span>Login</span>

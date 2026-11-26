@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { saveTableOrder, fetchPendingTables } from './tablesApi';
+import { saveTableOrder, fetchPendingTables, cancelTableOrder } from './tablesApi';
 
 const round2 = (v) => Math.round((Number(v) + Number.EPSILON) * 100) / 100;
 const num = (v) => parseFloat(v ?? '') || 0;
@@ -38,6 +38,7 @@ export function useTableOrder({ tableNo, productLookup, gstEnabled }) {
   const [cart, setCart] = useState({});
   const [customer, setCustomer] = useState({ name: '', mobile: '', note: '' });
   const [restored, setRestored] = useState(false);
+  const [hasExistingOrder, setHasExistingOrder] = useState(false);
   const autosyncTimer = useRef(null);
   const skipNextSync = useRef(true); // don't auto-save immediately after restore/mount
 
@@ -61,6 +62,7 @@ export function useTableOrder({ tableNo, productLookup, gstEnabled }) {
           });
           setCart(next);
           setCustomer({ name: t.customer_name || '', mobile: t.customer_mobile || '', note: t.order_note || '' });
+          setHasExistingOrder(true);
         }
       } catch { /* ignore — start empty */ }
       finally { if (active) { setRestored(true); skipNextSync.current = true; } }
@@ -194,12 +196,28 @@ export function useTableOrder({ tableNo, productLookup, gstEnabled }) {
     if (autosyncTimer.current) clearTimeout(autosyncTimer.current);
     await saveTableOrder(buildPayload('completed', payment));
     clear();
+    setHasExistingOrder(false);
   }, [buildPayload, clear]);
+
+  // ---- Cancel order ----
+  const cancelOrder = useCallback(async () => {
+    if (autosyncTimer.current) clearTimeout(autosyncTimer.current);
+    skipNextSync.current = true;
+    try {
+      await cancelTableOrder(tableNo);
+    } catch {
+      try {
+        await saveTableOrder(buildPayload('cancelled'));
+      } catch { /* ignore */ }
+    }
+    clear();
+    setHasExistingOrder(false);
+  }, [tableNo, buildPayload, clear]);
 
   return {
     cart, customer, setCustomer,
-    lines, totals, restored,
+    lines, totals, restored, hasExistingOrder,
     addPlain, changeQty, addInstance, removeOne, clear,
-    completeOrder,
+    completeOrder, cancelOrder,
   };
 }

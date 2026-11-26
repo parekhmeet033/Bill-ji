@@ -23,8 +23,9 @@
   color: #f8fafc !important;
 }
 
-.dark header {
-  background-color: rgba(15, 23, 42, 0.85) !important;
+.dark header,
+.dark nav {
+  background-color: rgba(15, 23, 42, 0.95) !important;
   border-color: #1e293b !important;
 }
 

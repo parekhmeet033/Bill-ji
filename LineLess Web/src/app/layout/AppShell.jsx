@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, UtensilsCrossed, ReceiptText, Table2,
   MonitorCog, BarChart3, Settings, LogOut, Menu, X, Store,
@@ -48,6 +48,9 @@ export default function AppShell() {
       ))}
     </nav>
   );
+
+  const location = useLocation();
+  const isSupport = location.pathname.startsWith('/app/support');
 
   return (
     <div className="min-h-screen bg-slate-50 text-secondary dark:bg-slate-950 dark:text-slate-100">
@@ -100,27 +103,29 @@ export default function AppShell() {
 
       {/* Main column */}
       <div className="lg:pl-64">
-        <header className="sticky top-0 z-20 flex items-center justify-between border-b border-slate-100 bg-white/90 px-4 py-3 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 md:px-8">
-          <button
-            onClick={() => setOpen(true)}
-            className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 lg:hidden"
-            aria-label="Open menu"
-          >
-            <Menu className="h-5 w-5" />
-          </button>
-          <div className="hidden lg:block" />
-          <div className="flex items-center gap-3">
-            <div className="text-right">
-              <p className="text-sm font-bold leading-tight text-secondary dark:text-slate-100">{user?.name || 'Vendor'}</p>
-              <p className="text-xs text-slate-400 leading-tight dark:text-slate-400">{user?.email || ''}</p>
+        {!isSupport && (
+          <header className="sticky top-0 z-20 flex items-center justify-between border-b border-slate-100 bg-white/90 px-4 py-3 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 md:px-8">
+            <button
+              onClick={() => setOpen(true)}
+              className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 lg:hidden"
+              aria-label="Open menu"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+            <div className="hidden lg:block" />
+            <div className="flex items-center gap-3">
+              <div className="text-right">
+                <p className="text-sm font-bold leading-tight text-secondary dark:text-slate-100">{user?.name || 'Vendor'}</p>
+                <p className="text-xs text-slate-400 leading-tight dark:text-slate-400">{user?.email || ''}</p>
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-sm font-bold text-white shadow-sm ring-2 ring-primary/20 dark:bg-slate-800 dark:text-white dark:border dark:border-slate-700">
+                {(user?.name || 'V').charAt(0).toUpperCase()}
+              </div>
             </div>
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-sm font-bold text-white shadow-sm ring-2 ring-primary/20 dark:bg-slate-800 dark:text-white dark:border dark:border-slate-700">
-              {(user?.name || 'V').charAt(0).toUpperCase()}
-            </div>
-          </div>
-        </header>
+          </header>
+        )}
 
-        <main className="mx-auto max-w-7xl px-4 py-6 md:px-8">
+        <main className={isSupport ? 'p-0 pb-12' : 'mx-auto max-w-7xl px-4 py-6 md:px-8'}>
           <Outlet />
         </main>
       </div>

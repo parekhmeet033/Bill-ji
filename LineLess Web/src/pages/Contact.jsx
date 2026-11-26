@@ -462,13 +462,13 @@ export default function Contact() {
             <div className="mt-8 pt-6 border-t border-slate-800 flex justify-between items-center relative z-10">
               <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Social Channels</span>
               <div className="flex space-x-3">
-                <a href="https://www.facebook.com/profile.php?id=61589825966944" target="_blank" rel="noreferrer" className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-primary text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300">
+                <a href="https://www.facebook.com/profile.php?id=61596494626375" target="_blank" rel="noreferrer" className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-primary text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300">
                   <FacebookIcon className="w-3.5 h-3.5" />
                 </a>
                 <a href="https://x.com/GoalScripture" target="_blank" rel="noreferrer" className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-primary text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300">
                   <TwitterIcon className="w-3.5 h-3.5" />
                 </a>
-                <a href="https://www.instagram.com/goal_scripture/" target="_blank" rel="noreferrer" className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-primary text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300">
+                <a href="https://www.instagram.com/billji.official/?hl=en" target="_blank" rel="noreferrer" className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-primary text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300">
                   <InstagramIcon className="w-3.5 h-3.5" />
                 </a>
                 <a href="https://www.linkedin.com/company/goal-scripture" target="_blank" rel="noreferrer" className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-primary text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300">

@@ -407,7 +407,7 @@ export default function SettingsPage() {
             <div className="divide-y divide-slate-100 dark:divide-slate-800">
               <div
                 onClick={() => navigate('/app/support')}
-                className="group flex cursor-pointer items-center justify-between p-4 transition-all duration-200 hover:bg-orange-50/80 dark:hover:bg-primary/10"
+                className="group flex cursor-pointer items-center justify-between p-4 transition-all duration-200 hover:bg-slate-50 dark:hover:bg-slate-800/60"
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-200 group-hover:scale-105 group-hover:bg-primary group-hover:text-white">

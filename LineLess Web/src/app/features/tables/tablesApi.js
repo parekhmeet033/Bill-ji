@@ -33,3 +33,19 @@ export async function placePosOrder({ customerName, customerMobile, note, total,
   });
   return res?.data ?? res ?? {};
 }
+
+// POST /api/cancel-table-order → cancels active dine-in table order and frees the table
+export async function cancelTableOrder(tableNo) {
+  const res = await apiClient.post('cancel-table-order', { table_no: Number(tableNo) });
+  return res?.data ?? res ?? {};
+}
+
+// POST /api/pos-draft-clear → clears any saved takeaway POS draft
+export async function clearPosDraft() {
+  try {
+    const res = await apiClient.post('pos-draft-clear', {});
+    return res?.data ?? res ?? {};
+  } catch {
+    return {};
+  }
+}

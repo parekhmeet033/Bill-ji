@@ -80,7 +80,7 @@ export default function SocialIcons() {
         <LinkedinIcon className="w-4 h-4" />
       </a>
       <a
-        href="https://www.instagram.com/goal_scripture/"
+        href="https://www.instagram.com/billji.official/?hl=en"
         target="_blank"
         rel="noreferrer"
         className="w-8 h-8 rounded-full bg-slate-800 hover:bg-primary text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300"
@@ -89,7 +89,7 @@ export default function SocialIcons() {
         <InstagramIcon className="w-4 h-4" />
       </a>
       <a
-        href="https://www.facebook.com/profile.php?id=61589825966944"
+        href="https://www.facebook.com/profile.php?id=61596494626375"
         target="_blank"
         rel="noreferrer"
         className="w-8 h-8 rounded-full bg-slate-800 hover:bg-primary text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300"
